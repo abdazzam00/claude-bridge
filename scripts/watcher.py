@@ -148,75 +148,70 @@ def poll_bridge_search_requests():
 
             try:
                 from hyperbrowser import Hyperbrowser
-                from hyperbrowser.models.extract import StartExtractJobParams
+                from hyperbrowser.models.agents.browser_use import StartBrowserUseTaskParams
                 from hyperbrowser.models.session import CreateSessionParams, CreateSessionProfile
                 from scraper import HB_API_KEY, HB_PROFILE_ID
-                from urllib.parse import quote
+                import json as _json
 
                 hb = Hyperbrowser(api_key=HB_API_KEY)
 
-                # Strategy: search per company for targeted results
+                # Strategy: search per company using Browser-Use agent
                 comp_list = companies if isinstance(companies, list) else []
                 if not comp_list:
-                    # No companies — just search by title + location
                     comp_list = [""]
 
                 all_leads = []
                 leads_per_company = max(3, max_results // max(len(comp_list), 1))
 
-                for comp in comp_list[:10]:  # Cap at 10 companies per request
-                    # Build clean search query
+                for comp in comp_list[:10]:
                     q_parts = []
                     if job_title:
-                        q_parts.append(f'"{job_title}"')
+                        q_parts.append(job_title)
                     if comp:
                         q_parts.append(comp)
                     if location:
                         q_parts.append(location)
                     search_query = " ".join(q_parts)
-
                     print(f"[*] Search #{req_id}: '{search_query}'")
 
-                    encoded_q = quote(search_query)
-                    search_url = f"https://www.linkedin.com/search/results/people/?keywords={encoded_q}&origin=GLOBAL_SEARCH_HEADER"
-
                     try:
-                        result = hb.extract.start_and_wait(StartExtractJobParams(
-                            urls=[search_url],
-                            prompt=f"""Extract all people search results from this LinkedIn search page.
-For each person, extract: full name, headline/job title, current company, location, and LinkedIn profile URL (https://www.linkedin.com/in/username).
-Return up to {leads_per_company} results. Only real people, not ads.""",
-                    schema_={
-                        "type": "object",
-                        "properties": {
-                            "results": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {"type": "string"},
-                                        "headline": {"type": "string"},
-                                        "company": {"type": "string"},
-                                        "location": {"type": "string"},
-                                        "linkedin_url": {"type": "string"},
-                                    }
-                                }
-                            },
-                            "total_results": {"type": "integer"},
-                        }
-                    },
-                    session_options=CreateSessionParams(
-                        use_stealth=True,
-                        solve_captchas=True,
-                        accept_cookies=True,
-                        profile=CreateSessionProfile(id=HB_PROFILE_ID),
-                    ),
-                    wait_for=5000,
-                ))
+                        result = hb.agents.browser_use.start_and_wait(StartBrowserUseTaskParams(
+                            task=f'''Go to LinkedIn. You are already logged in.
+Search for people using the search bar with query: {search_query}
+Click on the "People" tab. Extract the first {leads_per_company} people with:
+full name, headline, current company, location, LinkedIn profile URL (https://www.linkedin.com/in/username).
+Return as a JSON array.''',
+                            llm='gemini-2.5-flash',
+                            max_steps=20,
+                            keep_browser_open=False,
+                            session_options=CreateSessionParams(
+                                use_stealth=True, solve_captchas=True, accept_cookies=True,
+                                profile=CreateSessionProfile(id=HB_PROFILE_ID),
+                            ),
+                        ))
 
-                        comp_leads = result.data.get("results", []) if result.data else []
-                        print(f"[+] {comp or 'general'}: {len(comp_leads)} leads")
-                        all_leads.extend(comp_leads)
+                        if result.data and result.data.final_result:
+                            # Parse the agent's text output into structured data
+                            raw = result.data.final_result
+                            # Find JSON array in the response
+                            start = raw.find('[')
+                            end = raw.rfind(']') + 1
+                            if start >= 0 and end > start:
+                                comp_leads = _json.loads(raw[start:end])
+                                # Normalize field names
+                                for lead in comp_leads:
+                                    if 'linkedin_profile_url' in lead and 'linkedin_url' not in lead:
+                                        lead['linkedin_url'] = lead['linkedin_profile_url']
+                                    if 'full_name' in lead and 'name' not in lead:
+                                        lead['name'] = lead['full_name']
+                                    if 'current_company' in lead and 'company' not in lead:
+                                        lead['company'] = lead['current_company']
+                                print(f"[+] {comp or 'general'}: {len(comp_leads)} leads")
+                                all_leads.extend(comp_leads)
+                            else:
+                                print(f"[!] No JSON in agent output for '{comp}'")
+                        else:
+                            print(f"[!] No result for '{comp}'")
                     except Exception as e:
                         print(f"[!] Search error for '{comp}': {e}")
 
