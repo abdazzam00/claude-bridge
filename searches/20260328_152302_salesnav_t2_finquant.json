@@ -1,0 +1,20 @@
+{
+  "search_id": "20260328_152302_salesnav_t2_finquant",
+  "query": "engineer",
+  "filters": {
+    "past_companies": [
+      "Stripe",
+      "Coinbase",
+      "Brex",
+      "Mercury",
+      "Citadel",
+      "Two Sigma",
+      "Jane Street"
+    ],
+    "geo": "New York City Metropolitan Area",
+    "company_headcount": "1-200"
+  },
+  "max_results": 50,
+  "requested_at": "2026-03-28T19:23:02.486055+00:00",
+  "status": "pending"
+}

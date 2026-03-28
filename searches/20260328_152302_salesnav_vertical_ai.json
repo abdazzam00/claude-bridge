@@ -1,0 +1,18 @@
+{
+  "search_id": "20260328_152302_salesnav_vertical_ai",
+  "query": "software engineer",
+  "filters": {
+    "past_companies": [
+      "Scale AI",
+      "Cursor",
+      "Hebbia",
+      "Notion",
+      "Figma",
+      "Vercel"
+    ],
+    "geo": "New York City Metropolitan Area"
+  },
+  "max_results": 40,
+  "requested_at": "2026-03-28T19:23:02.892788+00:00",
+  "status": "pending"
+}

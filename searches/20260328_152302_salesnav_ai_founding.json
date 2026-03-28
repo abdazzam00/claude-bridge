@@ -1,0 +1,11 @@
+{
+  "search_id": "20260328_152302_salesnav_ai_founding",
+  "query": "AI engineer founding",
+  "filters": {
+    "geo": "New York City Metropolitan Area",
+    "company_headcount": "1-50"
+  },
+  "max_results": 40,
+  "requested_at": "2026-03-28T19:23:02.687853+00:00",
+  "status": "pending"
+}

@@ -1,0 +1,16 @@
+{
+  "search_id": "20260328_152302_salesnav_t1_feeders",
+  "query": "software engineer",
+  "filters": {
+    "past_companies": [
+      "Ramp",
+      "Google",
+      "Meta"
+    ],
+    "geo": "New York City Metropolitan Area",
+    "company_headcount": "1-50"
+  },
+  "max_results": 50,
+  "requested_at": "2026-03-28T19:23:02.268035+00:00",
+  "status": "pending"
+}
