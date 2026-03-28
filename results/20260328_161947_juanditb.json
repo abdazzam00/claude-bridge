@@ -1,0 +1,111 @@
+{
+  "skills": [
+    {
+      "name": "GraphQL",
+      "endorsements_count": "1 endorsement",
+      "endorsement_highlights": "Endorsed by Software Engineer at Meta"
+    },
+    {
+      "name": "Flow",
+      "endorsements_count": "",
+      "endorsement_highlights": "Endorsed by Software Engineer at Meta"
+    }
+  ],
+  "summary": "",
+  "headline": "Founding Engineer | Previously @ Google, Bloomberg & Meta",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor of Science - BS",
+      "school": "University of Central Florida",
+      "end_date": "Aug 2022",
+      "start_date": "Aug 2018",
+      "description": "",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Juan Torres",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Stealth Startup",
+      "duration": "5 mos",
+      "end_date": "Present",
+      "location": "New York, New York, United States",
+      "job_title": "Founding Engineer",
+      "start_date": "Nov 2025",
+      "description": "",
+      "employment_type": "Full-time",
+      "seniority_level": "",
+      "additional_details_raw": ""
+    },
+    {
+      "company": "Google",
+      "duration": "1 yr 2 mos",
+      "end_date": "Nov 2025",
+      "location": "New York, New York, United States",
+      "job_title": "Software Engineer",
+      "start_date": "Oct 2024",
+      "description": "Working on providing the best Managed Kafka cloud offering. Extensive work on distributed systems and cloud computing. Using technologies like Go, Java, Kubernetes, and more.",
+      "employment_type": "Full-time",
+      "seniority_level": "",
+      "additional_details_raw": ""
+    },
+    {
+      "company": "Bloomberg",
+      "duration": "1 yr 8 mos",
+      "end_date": "Oct 2024",
+      "location": "New York, New York, United States \u00b7 Hybrid",
+      "job_title": "Software Engineer",
+      "start_date": "Mar 2023",
+      "description": "Worked on the real time feeds team, assisting in handling billions of external data points for integration with Bloomberg\u2019s system. Led the revamp of an internal tool using modern web technologies such as Next.js and TypeScript.\u2026 more",
+      "employment_type": "Full-time",
+      "seniority_level": "",
+      "additional_details_raw": ""
+    },
+    {
+      "company": "Meta",
+      "duration": "3 mos",
+      "end_date": "Nov 2022",
+      "location": "New York, United States",
+      "job_title": "Software Engineer",
+      "start_date": "Sep 2022",
+      "description": "Briefly worked on an internal tool during training. Committed nearly 4,000 lines of significant code in the first month of picking up a project.\n\n[React.js, Hack and +5 skills]",
+      "employment_type": "Full-time",
+      "seniority_level": "",
+      "additional_details_raw": "[React.js, Hack and +5 skills]"
+    },
+    {
+      "company": "Meta",
+      "duration": "4 mos",
+      "end_date": "Dec 2021",
+      "location": "Florida, United States",
+      "job_title": "Software Engineer Intern",
+      "start_date": "Sep 2021",
+      "description": "Full stack work for an Instagram shopping team at Meta. Created an internal tool that aggregates information on Instagram shopping collections. Worked extensively with technologies like React and Hack.\u2026 more\n\n[React.js, Hack and +1 skill]",
+      "employment_type": "Full-time",
+      "seniority_level": "",
+      "additional_details_raw": "[React.js, Hack and +1 skill]"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "https://torresjuan.com/",
+    "other_contacts_raw": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "1,362 followers",
+  "connections_count": "500+ connections",
+  "honors_and_awards": [],
+  "volunteer_experience": [],
+  "additional_profile_sections_raw": "Featured:\n- Portfolio Blog \u2013 https://torresjuan.com/ \u2013 Learn more about me and what I've been up to recently. Writing articles about programming, tech, and other long-form thoughts.\n\nInterests (companies shown):\n- Stealth Startup \u2013 1,513,757 followers\n- Google \u2013 41,264,293 followers",
+  "url": "https://www.linkedin.com/in/juanditb/",
+  "scraped_at": "2026-03-28T20:24:21.036294+00:00",
+  "source": "regular",
+  "current_company": "Stealth Startup"
+}

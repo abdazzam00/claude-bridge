@@ -1,0 +1,83 @@
+{
+  "about": "rakeshnori.com",
+  "skills": [],
+  "headline": "Applied AI @ Ramp",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Master of Science - MS",
+      "school": "Harvard University",
+      "date_range": "",
+      "description": "Concurrent Masters",
+      "field_of_study": "Computational Science and Engineering",
+      "activities_and_societies": ""
+    },
+    {
+      "degree": "Bachelor's degree",
+      "school": "Harvard University",
+      "date_range": "",
+      "description": "",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Rakesh Nori",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "1 yr 9 mos",
+      "location": "",
+      "job_title": "Senior Software Engineer",
+      "date_range": "Jul 2024 - Present",
+      "description": "Applied AI",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Splunk",
+      "duration": "1 yr 4 mos",
+      "location": "San Francisco Bay Area",
+      "job_title": "Machine Learning Engineer Intern",
+      "date_range": "May 2022 - Aug 2023",
+      "description": "Anomaly Detection",
+      "employment_type": ""
+    },
+    {
+      "company": "QuantumScape",
+      "duration": "4 mos",
+      "location": "",
+      "job_title": "Software Engineer Intern",
+      "date_range": "May 2021 - Aug 2021",
+      "description": "Scientific Computing",
+      "employment_type": "Internship"
+    },
+    {
+      "company": "Harvard Medical School",
+      "duration": "4 mos",
+      "location": "",
+      "job_title": "Deep Learning Researcher Intern",
+      "date_range": "Jun 2019 - Sep 2019",
+      "description": "non-coding RNA-seq simulation",
+      "employment_type": "Internship"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "rakeshnori.com",
+    "other_contacts": []
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "1,368 followers",
+  "connections_count": "",
+  "honors_and_awards": [],
+  "additional_sections": [],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/rakesh-nori-18371715a/",
+  "scraped_at": "2026-03-28T20:30:44.413145+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

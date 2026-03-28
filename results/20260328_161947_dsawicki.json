@@ -1,0 +1,117 @@
+{
+  "about": "David Sawicki is a software engineer, linguist, and music director based in New York City. He is currently employed as a Senior Software Engineer at Duolingo, where he manages the Text-to-Speech (TTS) infrastructure and applications. He received his bachelor's and master's degrees in Linguistics in 2012 from Harvard University (magna cum laude with highest honors in field). As a linguist, his research interests lie at the intersection of cognition and phonology. David is also a conductor, pianist, music director and copyist for musical theater and opera. He served as the Assistant Conductor and Keyboard 2 for the 2016-17 Broadway Revival of CATS. He has also worked on the Broadway productions of Phantom of the Opera (2018-23) and Sunset Boulevard (2017). He has performed in over 50 US cities with touring Broadway musicals, such as Evita (2013-14; Associate Conductor & Keyboard 2), Love Never Dies, and CATS. He has conducted in venues such as the Pantages Theatre in Los Angeles, CA and the Kennedy Center Opera House in Washington, DC.\u2026 more",
+  "skills": [
+    {
+      "name": "Natural Language Processing",
+      "endorsements_count": "12 endorsements"
+    },
+    {
+      "name": "Machine Learning",
+      "endorsements_count": "5 endorsements"
+    }
+  ],
+  "headline": "Software Engineer, Linguist, Conductor, Pianist",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Master of Arts (M.A.), Linguistics",
+      "school": "Harvard University",
+      "end_date": "2012",
+      "start_date": "2011",
+      "description": "",
+      "field_of_study": "Linguistics",
+      "activities_and_societies": ""
+    },
+    {
+      "degree": "Bachelor of Arts (B.A.), Linguistics",
+      "school": "Harvard University",
+      "end_date": "2012",
+      "start_date": "2008",
+      "description": "Magna cum Laude with Highest Honors in Field Secondary Field in Music Advanced Standing program\u2026 more",
+      "field_of_study": "Linguistics",
+      "activities_and_societies": "Harvard Din & Tonics, Harvard-Radcliffe Collegium Musicum, Hasty Pudding Theatricals, Harvard-Radcliffe Dramatic Club, Harvard-Radcliffe Gilbert & Sullivan Players, Harvard-Radcliffe Linguistics Group"
+    }
+  ],
+  "full_name": "David Sawicki",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native or bilingual proficiency"
+    },
+    {
+      "language": "French",
+      "proficiency": "Full professional proficiency"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Duolingo",
+      "duration": "3 yrs 9 mos",
+      "end_date": "Present",
+      "location": "New York, New York, United States",
+      "job_title": "Senior Software Engineer",
+      "start_date": "Jul 2022",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Phantom of the Opera on Broadway",
+      "duration": "4 yrs 10 mos",
+      "end_date": "Apr 2023",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Copyist & Keyboard Sub",
+      "start_date": "Jul 2018",
+      "description": "Music copyist, substitute musician for keyboards 1 & 2, and music assistant at Phantom of the Opera on Broadway for the final 5 years of the original Broadway production",
+      "employment_type": ""
+    },
+    {
+      "company": "Kasisto",
+      "duration": "6 yrs 9 mos",
+      "end_date": "May 2022",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Principal Software Engineer",
+      "start_date": "Sep 2015",
+      "description": "Principal software engineer (Java, Python and Node.js) building NLP solutions for our customers in the financial technology sector. My responsibilities included: \u2022 Designing robust Natural Language Understanding with machine learning for intent classification and slot extraction in English, French, Chinese and Indonesian \u2022 Creating context-sensitive text normalization to enrich the user experience \u2022 Generating training and testing data while creating pipelines for testing and automation \u2022 Building backend integrations with customer APIs and business logic \u2022 Training and bootstrapping language models and acoustic models \u2022 Improving cross-linguistic Natural Language Generation modules \u2022 Manage internationalization and localization projects across languages, countries and customers \u2022 Creating and enforcing coding standards, best practices, unit testing and code reviews\u2026 more",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "CATS on Broadway",
+      "duration": "1 yr 8 mos",
+      "end_date": "Dec 2017",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Assistant Conductor & Keyboard 2",
+      "start_date": "May 2016",
+      "description": "I conducted and played keyboards for the Broadway revival of CATS, which opened at the Neil Simon Theatre on July 31st, 2016. \u2022 Assistant Conductor & Keyboard 2 (January 2017 - December 2017) \u2022 Keyboard Swing [Keyboard 2 & 3] & Rehearsal Pianist (July 2016 - January 2017) \u2022 Music Assistant (May 2016 - July 2016)\u2026 more",
+      "employment_type": ""
+    },
+    {
+      "company": "Sunset Boulevard on Broadway",
+      "duration": "6 mos",
+      "end_date": "Jun 2017",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Music Assistant",
+      "start_date": "Jan 2017",
+      "description": "Assistant to Kristen Blodgette (Music Director) for the 2017 revival of Sunset Boulevard on Broadway",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "",
+    "other_contacts": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "1,251 followers",
+  "connections_count": "500+",
+  "honors_and_awards": [],
+  "volunteer_experience": [],
+  "additional_profile_sections": "Interests (companies shown): Duolingo \u2013 846,260 followers; Hikma Health \u2013 2,690 followers.",
+  "url": "https://www.linkedin.com/in/dsawicki/",
+  "scraped_at": "2026-03-28T20:23:24.935341+00:00",
+  "source": "regular",
+  "current_company": "Duolingo"
+}

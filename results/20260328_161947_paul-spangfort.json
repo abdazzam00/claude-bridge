@@ -1,0 +1,111 @@
+{
+  "about": "",
+  "skills": [
+    {
+      "name": "Django",
+      "endorsement_count": "3"
+    },
+    {
+      "name": "JavaScript",
+      "endorsement_count": "6"
+    }
+  ],
+  "headline": "Software Engineer at Ramp",
+  "location": "United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor's degree",
+      "school": "Dartmouth College",
+      "end_date": "2018",
+      "start_date": "2014",
+      "description": "",
+      "field_of_study": "Computer Science and English Literature",
+      "activities_and_societies": ""
+    },
+    {
+      "degree": "IB",
+      "school": "Canadian International School of Hong Kong",
+      "end_date": "2013",
+      "start_date": "",
+      "description": "",
+      "field_of_study": "",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Paul Spangfort",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "1 yr 6 mos",
+      "end_date": "Present",
+      "location": "Remote",
+      "job_title": "Software Engineer",
+      "start_date": "Oct 2024",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Merge API",
+      "duration": "2 yrs 7 mos",
+      "end_date": "Sep 2024",
+      "location": "New York City Metropolitan Area \u00b7 On-site",
+      "job_title": "Software Engineer",
+      "start_date": "Mar 2022",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Meta Facebook",
+      "duration": "3 yrs 1 mo",
+      "end_date": "Mar 2022",
+      "location": "San Francisco Bay Area",
+      "job_title": "Software Engineer",
+      "start_date": "Mar 2019",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "College Pulse",
+      "duration": "7 mos",
+      "end_date": "Dec 2018",
+      "location": "",
+      "job_title": "Software Engineer Intern (YC S18)",
+      "start_date": "Jun 2018",
+      "description": "",
+      "employment_type": "Internship"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "",
+    "other_contact_details": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "1,516",
+  "connections_count": "500+",
+  "honors_and_awards": [
+    {
+      "date": "Jun 2018",
+      "title": "John G. Kemeny Computation Prize for Innovation",
+      "issuer": "Dartmouth College, Department of Computer Science",
+      "description": "Associated with Dartmouth College\n\nAwarded for Monad, an original browser game where users upload Artificial Intelligence (AI) bots. These bots are then automatically played against other users' bots, and are assigned a skill rating based on performance. This project was built using Python, Javascript, Docker, ReactJS and MongoDB\u2026 more"
+    },
+    {
+      "date": "May 2018",
+      "title": "HackDartmouth IV, Best Amazon Alexa App",
+      "issuer": "Dartmouth College, Thayer School of Engineering",
+      "description": "Associated with Dartmouth College\n\nFor this hackathon 4 of us developed an Alexa skill for communicating daily Dartmouth Dining Options. I wrote a webscraper for identifying the notoriously confusing daily Dartmouth dining options, and storing them in a database. I also made sure that our Alexa skill was connected to the webscraper API so it could communicate information to the user. This project was created using Python, Javascript, Alexa-Skills kit, and MongoDB\u2026 more"
+    }
+  ],
+  "additional_sections": "Activity:\n- 1,516 followers\n- Example visible activity item: Commented on a post (10mo): \"Hey Steve, thanks for the feedback, we'd love to implement this! I'll shoot you a DM to get a better understanding of what you're looking for\"\n\nRecommendations:\n- Received: None shown (\"Nothing to see for now\")\n- Given: 1 (details not visible in provided content)\n\nInterests (Companies shown):\n- Queens, a puzzle by LinkedIn \u2014 8,603,963 followers\n- Zip, a puzzle by LinkedIn \u2014 36,838,568 followers\n\nInterests section has a \"Show all\" link for more interests.\n\nPeople also viewed / More profiles for you (examples, all Software Engineer / Engineering at Ramp):\n- Jeffrey Zhou \u2014 Software Engineer at Ramp\n- Danielle Wang \u2014 Software Engineer at Ramp\n- Kevin Guo \u2014 Engineering at Ramp\n- Steven Kuang \u2014 Software Engineer at Ramp\n- Brian Schroeder \u2014 Software Engineer @ Ramp\n\nPeople you may know (examples):\n- Jazib Imran \u2014 XJalal Sons, XImtiaz, XGourmet Foods\n- Syed Faizan Bukhari \u2014 Sales Manager\n- Waqas Hussain \u2014 Regional Sales Manager at Ostar International Trading, KSA\n- Suman Munawar \u2014 Deputy Manager at Carrefour paragon\n- Ahmed Amer \u2014 Sales & Marketing Supervisor | 15+ Years in Sales, Marketing | Driving Sales Growth & Market Expansion | Business Development | Building Long-Term Business Growth\n\nSchools followed (from top card):\n- Dartmouth College\n\nCurrent company shown in top card:\n- Ramp\n\nProfile relationship:\n- \"\u00b7 3rd\" (3rd-degree connection)\n\nSales Navigator / actions:\n- Options visible: Save in Sales Navigator, Follow",
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/paul-spangfort/",
+  "scraped_at": "2026-03-28T20:25:37.918120+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

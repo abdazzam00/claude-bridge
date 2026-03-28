@@ -1,0 +1,105 @@
+{
+  "about": "",
+  "skills": [
+    {
+      "name": "Python (Programming Language)",
+      "endorsement_count": "",
+      "endorsers_preview": "2 experiences at Google and 1 other company"
+    },
+    {
+      "name": "Java",
+      "endorsement_count": "24 endorsements",
+      "endorsers_preview": "Endorsed by 17 colleagues at DrFirst, Inc."
+    }
+  ],
+  "headline": "Software Engineer",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "BS",
+      "school": "University of Maryland Global Campus",
+      "date_range": "2009",
+      "description": "",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "John Chen",
+  "languages": [],
+  "experience": [
+    {
+      "company": "FlutterFlow",
+      "location": "",
+      "job_title": "Software Engineer",
+      "date_range": "Sep 2024 - Feb 2025 \u00b7 6 mos",
+      "description": "",
+      "company_size": "",
+      "company_website": "",
+      "employment_type": "Full-time",
+      "company_industry": ""
+    },
+    {
+      "company": "Agility Robotics",
+      "location": "United States \u00b7 Remote",
+      "job_title": "Senior Staff Software Engineer",
+      "date_range": "Apr 2023 - Aug 2024 \u00b7 1 yr 5 mos",
+      "description": "",
+      "company_size": "",
+      "company_website": "",
+      "employment_type": "Full-time",
+      "company_industry": ""
+    },
+    {
+      "company": "Meta",
+      "location": "United States \u00b7 Remote",
+      "job_title": "Senior Software Engineer",
+      "date_range": "Oct 2022 - Feb 2023 \u00b7 5 mos",
+      "description": "",
+      "company_size": "",
+      "company_website": "",
+      "employment_type": "Full-time",
+      "company_industry": ""
+    },
+    {
+      "company": "Google",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Software Engineer",
+      "date_range": "Oct 2019 - Aug 2022 \u00b7 2 yrs 11 mos",
+      "description": "",
+      "company_size": "",
+      "company_website": "",
+      "employment_type": "Full-time",
+      "company_industry": ""
+    },
+    {
+      "company": "Uber",
+      "location": "New York, NY",
+      "job_title": "Senior Software Engineer",
+      "date_range": "Mar 2018 - Mar 2019 \u00b7 1 yr 1 mo",
+      "description": "",
+      "company_size": "",
+      "company_website": "",
+      "employment_type": "Full-time",
+      "company_industry": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "",
+    "other_contacts": []
+  },
+  "publications": [],
+  "honors_awards": [],
+  "certifications": [],
+  "followers_count": "612 followers",
+  "connections_count": "500+",
+  "volunteer_experience": [],
+  "additional_sections_raw": [],
+  "url": "https://www.linkedin.com/in/johndchen/",
+  "scraped_at": "2026-03-28T20:29:55.315041+00:00",
+  "source": "regular",
+  "current_company": "FlutterFlow"
+}

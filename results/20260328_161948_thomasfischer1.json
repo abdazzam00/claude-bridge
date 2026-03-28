@@ -1,0 +1,126 @@
+{
+  "about": "As a senior software engineer with over extensive experience, I\u2019ve honed my skills in designing and implementing scalable systems, driving cross-functional collaborations, and leading technical innovations. My career spans global tech giants like Google and Meta, as well as startups and entrepreneurial ventures, giving me a unique ability to tackle challenges from both technical and organizational perspectives. I recently focused on building Learning Lab, a novel peer-teaching platform, where I applied my technical expertise to develop an end-to-end solution and my mentoring experience to cultivate a learning-driven community. Through this, I deepened my ability to lead, teach, and inspire teams toward shared goals\u2014a skillset that complements my technical proficiency and positions me well for leadership roles. I thrive on: - Solving complex technical problems with measurable impact. - Mentoring and guiding engineers to grow in their careers. - Driving cross-team initiatives to improve efficiency and collaboration. - Building systems that blend technical excellence with user impact. CORE COMPETENCIES - Languages & Frameworks: Flutter/Dart, Java, Android (Java/Kotlin), Firestore, GWT, .NET/C#, Spring, Hibernate - System Architecture & Performance: Concurrency orchestration, network optimizations, caching, distributed systems - Leadership & Collaboration: Mentoring, hosting engineering summits (120+ attendees), cross-functional alignment, product management - Entrepreneurial Innovation: End-to-end product launches, active learning pedagogy design, marketing & user growth, hands-on user research\u2026 more",
+  "skills": [
+    {
+      "name": "Technical Leadership",
+      "endorsement_count": ""
+    },
+    {
+      "name": "Agile Methodologies",
+      "endorsement_count": ""
+    }
+  ],
+  "headline": "Senior Software Engineer (Meta, Google, startups)",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Associate of Science - AS",
+      "school": "Borough of Manhattan Community College",
+      "date_range": "Aug 2021 \u2013 Dec 2022",
+      "description": "",
+      "field_of_study": "Business Administration and Management, General",
+      "activities_and_societies": "Phi Theta Kappa Honor Society Dean's list"
+    },
+    {
+      "degree": "Product Management Certificate",
+      "school": "General Assembly",
+      "date_range": "2017 \u2013 2017",
+      "description": "Forty-hour course in product management (from finding market fit over customer interviews to product road maps).",
+      "field_of_study": "Product Management",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Thomas Fischer",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Learning Lab",
+      "duration": "3 yrs 3 mos",
+      "location": "New York, New York, United States",
+      "job_title": "Founding Engineer",
+      "date_range": "Jan 2023 - Present",
+      "description": "- Designed and developed a cross-platform peer-teaching platform using Flutter/Dart to manage curriculum, track progress, and facilitate personalized learning.\n- Led all aspects of the startup, including technical development, product management, sales, and marketing.\n- Taught classes to hundreds of students to test drive the Learning Lab teaching format.\n- Gained experience in pitching, strategic planning, and influencing stakeholders in an entrepreneurial setting.\u2026 more",
+      "employment_type": "Self-employed"
+    },
+    {
+      "company": "Facebook",
+      "duration": "2 yrs 10 mos",
+      "location": "New York, New York, United States",
+      "job_title": "Senior Software Engineer",
+      "date_range": "Oct 2018 - Jul 2021",
+      "description": "- Organized company wide summit for 100+ international distributed colleagues to set direction on image request processing from bytes on disk at the CDN to pixels on the Android phone screen.\n- Increased time spent on the Facebook Android app by 0.3% by building an advanced image prefetching feature.\n- Introduced a smart, centralized background task scheduling system into the Instagram Android app.\n- Developed a collection of intermediate metrics to root cause app performance regressions in production.\u2026 more",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Playposse",
+      "duration": "3 yrs 3 mos",
+      "location": "Santa Monica, CA",
+      "job_title": "Entrepreneur/Engineer",
+      "date_range": "Jul 2015 - Sep 2018",
+      "description": "Incubated and released Android apps, developed App Engine backends, and hired offshore UX, marketers, and writers.\n* TeachMe.Now - Collaborated with an educator to build a distributed peer-to-peer learning model for schools and app with >20k LOC. Launched trial to three schools in the US and now in incubation with Bixel Exchange.\n* Beeline - Dating app based on a complex, mathematical matching algorithm. Presented at Tech Fair LA. Selected Singapore and South Africa for test launches due to dramatically reduced CPC costs and English language demographic. Hired freelancers including an illustrator, UX designer, and writer.\n* Land Of The Rooster - Location-based augmented reality game based on supply chain gameplay (>20k LOC).\n* Hands-Free Selfie Camera - A smart timer for users to take photos without holding the phone. Managed a freelance UX designer.\n* L-System Studio - Developed a math app to render L-Systems (fractals) with a 4.88/5.0 rating on Play Store.\nCheck out the apps in the Android Play Store: https://play.google.com/store/apps/developer?id=Play+Posse&hl=en\u2026 more",
+      "employment_type": ""
+    },
+    {
+      "company": "Google",
+      "duration": "4 yrs 6 mos",
+      "location": "Venice, CA",
+      "job_title": "Software Engineer",
+      "date_range": "Feb 2011 - Jul 2015",
+      "description": "Assigned to work on Google\u2019s AdWords product on a siloed team and in collaboration with multiple teams worldwide, requiring cross-functional work and ability to negotiate buy-in from diverse teams. AdWords is a GWT application (Java translated to and executed as JavaScript in the browser) that generates HTML on the fly inside of the browser for instant rendering, with performance being critical. Projects included front-end work for topics tab, display tab, brand advertising, and keyword tool.\n* Contributed to development of AdWords tabs for targeting ads on the display network. Initial project was to build a reporting table with URLs where an ad was displayed, then became internal SME for table library. Ran deep queries to analyze user behavior due to potential multi-million dollar significance of small UI changes. The display tab launch was hailed as a top ten accomplishment in Google Ads.\n* Led engineering team and design for the AdWords display tab 2.0 project that included enhancements and introduced \u201cnegative targeting\u201d to primary UI. Received best performance score of tenure after this project. Member of keyword tool team focused on the table library. Met with Chrome browser team and an expert on visually impaired users to design and implement improved scrolling and ensured compatibility with screen readers. Collaborated with Microsoft Internet Explorer engineers to analyze and resolve a bug.\n* Contributed to AdWords infrastructure library and GWT/GIN open source library in Java that are critical to AdWords.\n* Hosted two Princeton students as summer interns and managed their onboarding and project efforts for their full Google experience. Scheduled weekly mentoring meetings to discuss career topics and work/life balance.\n* Member of Google\u2019s Joda Committee focused on improvements to the US internship program and the Zeitgeist Committee for my group that directs an employee survey on satisfaction used by management and executives to inform decisions.\u2026 more",
+      "employment_type": ""
+    },
+    {
+      "company": "BumperCrop Game",
+      "duration": "1 yr 4 mos",
+      "location": "Santa Monica, CA",
+      "job_title": "Entrepreneur/Engineer",
+      "date_range": "Nov 2009 - Feb 2011",
+      "description": "Bumper Crop was a realistic farm simulation game for Facebook (\u201cSimcity meets Farmville\u201d with crops, seeds, weeds).\n* Teamed with a Bay Area illustrator to create all game environments and visual elements, with 400 illustrations and 400 code classes. Developed extensive analytics to observe player behavior.\n* Managed Apache/Tomcat configuration and wrote monitoring scripts. Configured DNS server for wildcard third-level domains to enable Tomcat to dynamically create host names.\n* Tools and technologies included Java, Spring, Tomcat, Subversion, Web Services, CXF, Java2D, Hibernate, IntelliJ, testNG, MySQL, Linux, Paypal API, RestFB/Facebook API, EHCache, log4j, Google Analytics, Google Forms, PitchEngine. \u2026 more",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "531 followers",
+  "connections_count": "500+",
+  "honors_and_awards": [],
+  "additional_sections": [
+    {
+      "content": "531 followers\n\nThomas Fischer commented on a post \u2022 9mo\n\nComment content (truncated in view): \u201cSteven Pulido If someone struggles to explain and they are frustrated by your questions, don't keep asking questions. Maybe, find something to compliment about their explanation. It might make them feel good to be appreciated for once.\nIf they give terrible directions, hate you questions, and fault you for not understanding, maybe be happy they warned you early not to work there.\u201d",
+      "section_name": "Activity"
+    },
+    {
+      "content": "Laura Greenwald \u00b7 3rd+\nOwner, Chickymonkey Studio and Graphic Design Consultant\nJanuary 10, 2011, Laura worked with Thomas on the same team\n\n\u201cIf I can sum Thomas up in one word, it would be 'brilliant.' Having worked with many developers over the years, Thomas is really one-of-a-kind when it comes to web application development. Thomas gladly spent time going over complicated issues without being condescending -- he's just a natural teacher. Thomas' head down approach to working on Bumper Crop was/is amazing! No stone goes unturned with this guy! If there's a problem, Thomas was sure to get to the root of it -- and still maintain a sense of humor throughout. I'm hoping I'll have the opportunity of working with Thomas for a long time to come!\u201d\n\nKelley Troia \u00b7 3rd\nExecutives make million-dollar decisions in rooms I design. | Ex-Walmart, Ex-Whole Foods | Founder, LBB + Clandestine\nAugust 8, 2006, Kelley worked with Thomas on the same team\n\n\u201cThomas' commitment and dedication to technical development work is unparalleled. There are certain people you consider your \"go-to's\" at work - Thomas is absolutely one of those people. Present him with a challenge and he won't settle until he's come up with a solution to the challenge. Any IT department is lucky to have him - he's a project manager's dream!\u201d",
+      "section_name": "Recommendations Received"
+    }
+  ],
+  "volunteer_experience": [
+    {
+      "role": "Outings Leader",
+      "cause": "Environment",
+      "location": "",
+      "date_range": "May 2008 - Jan 2017 \u00b7 8 yrs 9 mos",
+      "description": "Organize group hikes into the beautiful nature around Los Angeles from little afternoon hikes in the Santa Monica Mountains to full day expeditions in nature within driving distance of Los Angeles. The Sierra Club has a twin mission. (1) Bring people out on hikes to experience nature, so that they want to protected. (2) Protect nature because we like to hike in it. Organizing group hikes trains a variety of leadership skills from planning, promotion, public speaking, dealing with a wide range of personalities to handling emergency situations.\u2026 more",
+      "organization": "Sierra Club"
+    },
+    {
+      "role": "Public Speaking Track",
+      "cause": "Education",
+      "location": "",
+      "date_range": "May 2018 - Present \u00b7 7 yrs 11 mos",
+      "description": "Toastmaster is a nonprofit dedicated to developing public speaking and leadership skills. The club is run by volunteers and beliefs in the learning through action approach. I have practiced public speaking in the club and also taken on program manager roles for the evening program. During my short participation, I've already won a collection of ribbons as best speaker, best program director, and so on.\u2026 more",
+      "organization": "Toastmasters International"
+    }
+  ],
+  "url": "https://www.linkedin.com/in/thomasfischer1/",
+  "scraped_at": "2026-03-28T20:33:35.563764+00:00",
+  "source": "regular",
+  "current_company": "Learning Lab"
+}

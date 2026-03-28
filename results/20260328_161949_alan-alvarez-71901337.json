@@ -1,0 +1,153 @@
+{
+  "about": "Software Engineer with over 10 years of experience across the stack. 4 of those leading engineering teams to deliver quality software products.",
+  "skills": [
+    {
+      "name": "Leadership",
+      "details": "Endorsed by 3 colleagues at Intellisys D. Corp.",
+      "endorsement_count": "7 endorsements"
+    },
+    {
+      "name": "Military",
+      "details": "Endorsed by 2 colleagues at Intellisys D. Corp.",
+      "endorsement_count": "4 endorsements"
+    }
+  ],
+  "headline": "Software Engineer at Meta",
+  "location": "New York City Metropolitan Area",
+  "projects": [
+    {
+      "name": "Electronic Channel Services",
+      "role": "",
+      "end_date": "Present",
+      "start_date": "Nov 2003",
+      "description": "IRC Channel Service bot for IRCU (P10 Protocol) based IRC Networks written in C++ utilizing MySql++ library for access to MySQL Database Servers. This was a hobby project that I developed on and off from 2003 to 2006. The code is located at https://github.com/clsk/eChan\u2026 more",
+      "project_url": "https://github.com/clsk/eChan",
+      "associated_with": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor\u2019s Degree",
+      "school": "Pontificia Universidad Cat\u00f3lica Madre y Maestra",
+      "end_date": "",
+      "start_date": "",
+      "description": "",
+      "field_of_study": "Computer Engineering",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Alan Alvarez",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": ""
+    },
+    {
+      "language": "Spanish",
+      "proficiency": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "Meta",
+      "duration": "5 yrs 9 mos",
+      "end_date": "Present",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Staff Software Engineer",
+      "start_date": "Jul 2020",
+      "description": "",
+      "employment_type": "Full-time",
+      "additional_details": ""
+    },
+    {
+      "company": "iCIMS",
+      "duration": "1 yr",
+      "end_date": "Jul 2020",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Engineering Manager",
+      "start_date": "Aug 2019",
+      "description": "",
+      "employment_type": "Full-time",
+      "additional_details": "Part of an overall 2 yrs 5 mos at iCIMS"
+    },
+    {
+      "company": "iCIMS",
+      "duration": "1 yr 6 mos",
+      "end_date": "Aug 2019",
+      "location": "Greater New York City Area",
+      "job_title": "Software Engineer III",
+      "start_date": "Mar 2018",
+      "description": "",
+      "employment_type": "",
+      "additional_details": "Part of an overall 2 yrs 5 mos at iCIMS"
+    },
+    {
+      "company": "Scopic Software",
+      "duration": "1 yr 11 mos",
+      "end_date": "Jan 2018",
+      "location": "",
+      "job_title": "Technical Lead",
+      "start_date": "Mar 2016",
+      "description": "",
+      "employment_type": "",
+      "additional_details": ""
+    },
+    {
+      "company": "Wherewhat",
+      "duration": "1 yr 3 mos",
+      "end_date": "Jul 2017",
+      "location": "",
+      "job_title": "Co-Founder and CTO",
+      "start_date": "May 2016",
+      "description": "",
+      "employment_type": "",
+      "additional_details": ""
+    },
+    {
+      "company": "Soluciones GBH",
+      "duration": "7 mos",
+      "end_date": "Dec 2015",
+      "location": "",
+      "job_title": "iOS Technical Lead",
+      "start_date": "Jun 2015",
+      "description": "",
+      "employment_type": "",
+      "additional_details": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "",
+    "other_contact_details": ""
+  },
+  "publications": [],
+  "certifications": [
+    {
+      "name": "Certified SAFe\u00ae 4 Scrum Master",
+      "issuer": "SAFe by Scaled Agile, Inc.",
+      "issue_date": "Aug 2019",
+      "credential_id": "",
+      "credential_url": "https://www.youracclaim.com/badges/2219059d-6fe5-4f81-b0ae-a0ebf8d471c4/linked_in_profile",
+      "expiration_date": ""
+    },
+    {
+      "name": "Startup School Online",
+      "issuer": "Y Combinator",
+      "issue_date": "Jun 2017",
+      "credential_id": "10737882",
+      "credential_url": "https://www.credential.net/i2u47hzj",
+      "expiration_date": ""
+    }
+  ],
+  "followers_count": "614 followers",
+  "connections_count": "500+",
+  "honors_and_awards": [],
+  "volunteer_experience": [],
+  "additional_profile_details": "Profile URL: https://www.linkedin.com/in/alan-alvarez-71901337/\nCurrent company: Meta\nProfile connection degree: 3rd\nActivity snippet: Commented on a post 11 months ago: \"Congrats Luis!\"",
+  "url": "https://www.linkedin.com/in/alan-alvarez-71901337/",
+  "scraped_at": "2026-03-28T20:34:25.784154+00:00",
+  "source": "regular",
+  "current_company": "Meta"
+}

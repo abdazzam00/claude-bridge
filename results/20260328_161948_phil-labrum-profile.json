@@ -1,0 +1,141 @@
+{
+  "about": "With over three years of work experience in machine learning, quantum computing, and education, I am passionate about creating and delivering cutting-edge courses that empower learners to master the skills and concepts of the future. My mission is to inspire and equip students, professionals, and educators with the tools and knowledge they need to succeed in the rapidly evolving fields of AI and quantum software engineering. I bring diverse perspectives and experiences to the team, having worked with leading organizations such as Google Quantum AI, IBM Quantum, Amazon Web Services, and Harvard University. Until November 2022, I was a course developer and lead instructor at The Coding School, where I designed and taught machine learning and quantum computing courses for various audiences and partners. I created 12 machine learning lectures and ten problem sets using Pandas, PyTorch, Sci-Kit Learn, and AWS SageMaker for the AWS Train AI professional development course. I also developed and taught lessons, labs, and exercises in intensive courses on computer science and quantum software engineering for the Early Quantum Career Immersion (EQCI) program, in partnership with Google Quantum AI, IBM Quantum, Qunnect, BP, and the Unitary Fund. In both roles, I used my skills in leadership, research, and data analysis to deliver engaging and rigorous content that challenged and motivated the learners.\u2026 more",
+  "skills": [
+    {
+      "skill_name": "TypeScript",
+      "endorsement_count": ""
+    },
+    {
+      "skill_name": "PostgreSQL",
+      "endorsement_count": ""
+    },
+    {
+      "skill_name": "Machine Learning",
+      "endorsement_count": ""
+    },
+    {
+      "skill_name": "Data Science",
+      "endorsement_count": ""
+    },
+    {
+      "skill_name": "Software Development",
+      "endorsement_count": ""
+    }
+  ],
+  "headline": "Software Engineer",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor of Arts - BA",
+      "school": "Harvard University",
+      "end_date": "2021",
+      "start_date": "2017",
+      "description": "Mathematics",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": ""
+    },
+    {
+      "degree": "",
+      "school": "Eton College",
+      "end_date": "2017",
+      "start_date": "2012",
+      "description": "",
+      "field_of_study": "",
+      "activities_and_societies": "House Captain, founder of the Astronomy Society, member of the Eton Society."
+    }
+  ],
+  "full_name": "Phil Labrum",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "4 mos",
+      "end_date": "Present",
+      "location": "New York, United States \u00b7 On-site",
+      "job_title": "Senior Software Engineer",
+      "start_date": "Dec 2025",
+      "description": "Building core ledger and financial infrastructure.",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Moab",
+      "duration": "11 mos",
+      "end_date": "Nov 2025",
+      "location": "New York, New York, United States \u00b7 On-site",
+      "job_title": "Full Stack Software Engineer",
+      "start_date": "Jan 2025",
+      "description": "\u2022 Early engineer at Moab, an Elad Gil backed startup delivering a vertical Saas for heavy machinery rental companies. \u2022 Owned end-to-end development of Moab\u2019s ledger-based asset tracking platform, extending the financial ledger platform to track physical assets with full auditability and event-driven state transitions. \u2022 automating reconciliation workflows and reducing inventory count cycles from three weeks to under 24 hours. \u2022 Delivered a full stack global search platform, optimizing database performance with advanced indexing, text search vectors, and pgvector-based embeddings for LLM-driven queries.\u2026 more",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Altir Industries, Inc.",
+      "duration": "2 yrs 1 mo",
+      "end_date": "Jan 2025",
+      "location": "New York, New York, United States \u00b7 On-site",
+      "job_title": "Founding Software Engineer",
+      "start_date": "Jan 2023",
+      "description": "\u2022 Founding engineer at Altir, a Founders Fund backed fintech startup building a treasury management platform for franchise businesses. \u2022 Architected real-time banking data platform integrating Plaid and Teller, and a Postgres-backed ETL and ML labeling pipeline to categorize financial transactions, powering automated financial insights and reporting. \u2022 Developed dynamic analytics dashboards in React and D3 with interactive, query-driven visualizations for treasury and cashflow intelligence. \u2022 Implemented secure ACH and wire transfer workflows using Treasury Prime\u2019s API, enabling seamless customer fund movements end-to-end.\u2026 more\n\n[TypeScript and PostgreSQL]",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "The Coding School",
+      "duration": "1 yr",
+      "end_date": "Dec 2022",
+      "location": "New York, New York, United States",
+      "job_title": "Non-profit Fellowship | Quantum Machine Learning",
+      "start_date": "Jan 2022",
+      "description": "\u2022 Contributed to early versions of IBM\u2019s Qiskit Textbook, developing educational modules and algorithms in quantum machine learning using Qiskit and pyQuil. \u2022 Designed and led an applied quantum computing workshop with Prof. Franz Klein, collaborating with NASA Goddard and CSIRO researchers to prototype quantum algorithms for climate-data analysis.\u2026 more\n\n[Quantum Computing, Software Development and +5 skills]",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Harvard University",
+      "duration": "4 mos",
+      "end_date": "Aug 2021",
+      "location": "Cambridge, Massachusetts, United States",
+      "job_title": "Machine Learning Researcher | Computational and Cognitive Neuroscience Lab",
+      "start_date": "May 2021",
+      "description": "\u2022 Used reinforcement learning models to explore human decision-making using MATLAB, Python, and Stan statistical programming Libraries \u2022 Used a high-performance computing cluster to train Bayesian inference machine learning algorithms on human test data.\u2026 more\n\n[Data Science, MATLAB and +4 skills]",
+      "employment_type": "Full-time"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "plabrum.com",
+    "linkedin_profile_url": "https://www.linkedin.com/in/phil-labrum-profile/"
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "955 followers",
+  "connections_count": "500+ connections",
+  "honors_and_awards": [],
+  "additional_sections": [
+    {
+      "section_name": "Activity",
+      "entries_raw_text": "955 followers\n\nRecent post: \"Excited to join Ramp's engineering team.\" \u2014 Starting a new position at Ramp. 87 reactions, 6 comments."
+    },
+    {
+      "section_name": "Recommendations Received",
+      "entries_raw_text": "From Lana Martin, Ph.D., Senior Program Analyst at the State Bar of California\u2019s Office of Access & Inclusion (August 26, 2022, Lana managed Phil directly):\n\n\"Phil is an incredibly talented and dedicated instructor and content developer who clearly knows what it takes to help students and his teammates succeed. I have had the pleasure of supervising Phil while he teaches, and while our team plans, designs, produces, and assesses instructional deliverables for in-person and virtual STEM workshops and courses. I have mentored teachers for 10 years, and Phil stands out as an exceptionally patient and effective instructor, tutor, and mentor. Phil makes it fun for students to learn difficult subjects \u2013 like quantum computing \u2013 in technical areas that are often ambiguous because they are actively being developed. I am particularly impressed by Phil\u2019s skill with teaching in the virtual format. He really nails content pacing even for courses with logistically challenging synchronous and asynchronous components. Phil has a wonderful set of engagement strategies that I have seen build rapport and comradery among students to a truly inspiring level. I am especially impressed by Phil\u2019s ability to research technical concepts and professional standards in areas new to our team, then quickly map an effective plan for our organization to meet or exceed academic and industry partners\u2019 expectations. While developing new learning paths and materials for high school, undergraduate, and post-graduate learners, he shows a particularly keen eye for balancing learning objectives and competencies between technical and leadership components. Our students came for the Python and Qiskit, but they absolutely loved staying for the team building environment that Phil facilitated. In addition to his amazing work ethic, Phil\u2019s ability to motivate colleagues and students \u2013 no matter how overwhelming the task at hand \u2013 makes him a phenomenal asset to any team, be they instructors, content developers, researchers, consultants, or engineers!\u2026 more"
+    },
+    {
+      "section_name": "Top skills (summary)",
+      "entries_raw_text": "Top skills: Machine Learning \u2022 Data Science \u2022 Software Development"
+    },
+    {
+      "section_name": "Interests - Companies",
+      "entries_raw_text": "Ramp \u2014 284,217 followers \u2014 Follow\nMoab \u2014 843 followers \u2014 Follow"
+    },
+    {
+      "section_name": "Interests - Schools",
+      "entries_raw_text": "Harvard University\nEton College"
+    }
+  ],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/phil-labrum-profile/",
+  "scraped_at": "2026-03-28T20:30:47.047543+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

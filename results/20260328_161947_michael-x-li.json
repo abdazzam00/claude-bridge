@@ -1,0 +1,121 @@
+{
+  "about": "",
+  "skills": [
+    {
+      "name": "Python (Programming Language)",
+      "endorsed_by": [
+        "Endorsed by 3 colleagues at Capital One"
+      ],
+      "endorsement_count": "3 endorsements"
+    },
+    {
+      "name": "Java",
+      "endorsed_by": [
+        "Endorsed by Mike White who is highly skilled at this",
+        "Endorsed by 2 colleagues at Capital One"
+      ],
+      "endorsement_count": ""
+    }
+  ],
+  "headline": "Senior Software Engineer at Ramp",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "grade": "3.7",
+      "degree": "Bachelor's degree",
+      "school": "Duke University",
+      "end_date": "2019",
+      "start_date": "2015",
+      "description": "",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": "Scale & Coin, InCube"
+    }
+  ],
+  "full_name": "Michael Li",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "3 yrs 5 mos",
+      "end_date": "Present",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Senior Software Engineer, Growth",
+      "start_date": "Nov 2022",
+      "description": "",
+      "employment_type": "Full-time",
+      "company_description": ""
+    },
+    {
+      "company": "Orchard",
+      "duration": "2 yrs 1 mo",
+      "end_date": "Nov 2022",
+      "location": "New York, New York, United States",
+      "job_title": "Software Engineer, Data",
+      "start_date": "Nov 2020",
+      "description": "",
+      "employment_type": "Full-time",
+      "company_description": ""
+    },
+    {
+      "company": "Capital One",
+      "duration": "1 yr 4 mos",
+      "end_date": "Nov 2020",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Software Engineer",
+      "start_date": "Aug 2019",
+      "description": "I am a software engineer who currently works on building out Presto for Capital One. Presto is a sql engine that runs on distributed data processing clusters and is optimized for latency. Because of Capital One\u2019s petabytes and petabytes worth of data, and the strict regulations of the financial sector, building out a sql engine that balances latency and security is a non-trivial problem. My day-to-day involves building out Presto functionality to work at enterprise scale and adding features that decrease man-hours and human error.\u2026 more",
+      "employment_type": "",
+      "company_description": ""
+    },
+    {
+      "company": "Capital One",
+      "duration": "3 mos",
+      "end_date": "Aug 2018",
+      "location": "Greater Richmond Region",
+      "job_title": "Software Engineering Intern",
+      "start_date": "Jun 2018",
+      "description": "For Capital One's data transformation journey, the maintenance of migration servers is a key factor of success. In order to prevent impediments, adequate monitoring of servers is vital for quick diagnosis of issues. My project was to implement Datadog scripts and dashboards within the servers to ensure that engineers using the servers could quickly find out root causes of server crashes and slowdowns.\u2026 more",
+      "employment_type": "",
+      "company_description": ""
+    },
+    {
+      "company": "Wells Fargo",
+      "duration": "4 mos",
+      "end_date": "Aug 2017",
+      "location": "San Francisco Bay Area",
+      "job_title": "Data Science Intern",
+      "start_date": "May 2017",
+      "description": "Loan Syndication is a 1 trillion+ market that involves inviting groups of lenders to participate in a large loan. The act of inviting lenders to participate is a costly process that takes extensive time and labor. My project was to create a data-science and machine learning driven model of relevant factors to predict the likelihood of invited lenders of accepting a deal.\u2026 more",
+      "employment_type": "",
+      "company_description": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "other": [],
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "523 followers",
+  "connections_count": "500+",
+  "honors_and_awards": [],
+  "additional_sections": [
+    {
+      "content": "Michael has no recent posts\n\nRecent posts Michael shares will be displayed here.",
+      "section_name": "Activity"
+    },
+    {
+      "content": "Top Voices\n\nCompanies\n\nSchools",
+      "section_name": "Interests"
+    }
+  ],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/michael-x-li/",
+  "scraped_at": "2026-03-28T20:25:14.778157+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

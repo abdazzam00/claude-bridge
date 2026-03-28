@@ -1,0 +1,187 @@
+{
+  "skills": [
+    {
+      "name": "Python",
+      "endorsers": [
+        "Damian H.",
+        "4 colleagues at Meta"
+      ],
+      "endorsement_count": ""
+    },
+    {
+      "name": "JavaScript",
+      "endorsers": [
+        "Elton Pinto",
+        "4 colleagues at Meta"
+      ],
+      "endorsement_count": ""
+    }
+  ],
+  "summary": "Hey, I'm Anthony! \ud83d\udccd I'm a software engineer at Meta NYC \ud83d\ude04 I love solving problems and helping people \ud83d\udc68\u200d\ud83d\udcbb I'm interested in software and working on meaningful products \ud83d\udcf8 I enjoy discovering new things, documenting memories, and playing music\u2026 more",
+  "headline": "Software Engineer @ Meta",
+  "location": "New York, New York, United States",
+  "projects": [
+    {
+      "url": "https://antzheng.github.io/wurdle",
+      "date": "Feb 2022 \u2013 Feb 2022",
+      "title": "Wurdle \u2013 Web App",
+      "description": "",
+      "associated_with": ""
+    },
+    {
+      "url": "https://antzheng.github.io/chess/",
+      "date": "Jul 2021 \u2013 Jul 2021",
+      "title": "Chess \u2013 Web App",
+      "description": "",
+      "associated_with": ""
+    }
+  ],
+  "education": [
+    {
+      "grade": "",
+      "degree": "Bachelor of Science - BS",
+      "school": "Georgia Institute of Technology",
+      "end_date": "2021",
+      "activities": "Concentration: \u2022 Information Internetworks \u2022 Media\u2026 more",
+      "start_date": "2018",
+      "description": "",
+      "field_of_study": "Computer Science"
+    },
+    {
+      "grade": "",
+      "degree": "High School Diploma",
+      "school": "Matanzas High School",
+      "end_date": "2018",
+      "activities": "\u2022 Marching Band \u2022 Symphonic Band \u2022 Flagler County All-County Band \u2022 Interact Club \u2022 Leo Club \u2022 National Honor Society \u2022 Mu Alpha Theta \u2022 Varsity Lacrosse\u2026 more",
+      "start_date": "2014",
+      "description": "",
+      "field_of_study": ""
+    }
+  ],
+  "full_name": "Anthony Zheng",
+  "languages": [
+    {
+      "language": "Chinese",
+      "proficiency": "Limited working proficiency"
+    },
+    {
+      "language": "English",
+      "proficiency": "Native or bilingual proficiency"
+    }
+  ],
+  "experience": [
+    {
+      "skills": [],
+      "company": "Meta",
+      "duration": "2 yrs 9 mos",
+      "end_date": "Present",
+      "location": "New York, New York, United States",
+      "job_title": "Senior Software Engineer",
+      "start_date": "Jul 2023",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "skills": [],
+      "company": "Meta",
+      "duration": "1 yr",
+      "end_date": "Jun 2023",
+      "location": "New York, New York, United States",
+      "job_title": "Software Engineer II",
+      "start_date": "Jul 2022",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "skills": [],
+      "company": "Meta",
+      "duration": "5 mos",
+      "end_date": "Jun 2022",
+      "location": "New York, New York, United States",
+      "job_title": "Software Engineer",
+      "start_date": "Feb 2022",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "skills": [],
+      "company": "College of Computing at Georgia Tech",
+      "duration": "2 yrs 8 mos",
+      "end_date": "Dec 2021",
+      "location": "Atlanta, Georgia, United States",
+      "job_title": "Undergraduate Teaching Assistant",
+      "start_date": "May 2019",
+      "description": "\u2022 Assisted course instructor in teaching 500+ students for CS 1301: Introduction to Computing in Python \u2022 Taught weekly 75-minute recitations to 50 students to reinforce course concepts \u2022 Collaborated closely with the instructor to write, review, and publish assignments and exams \u2022 Held weekly office hours to offer additional help to students on course material and test preparation \u2022 Automated the grading process by developing autograders to conduct unit tests on student submissions\u2026 more",
+      "employment_type": ""
+    },
+    {
+      "skills": [],
+      "company": "Facebook",
+      "duration": "4 mos",
+      "end_date": "Aug 2021",
+      "location": "Menlo Park, California, United States",
+      "job_title": "Software Engineer Intern",
+      "start_date": "May 2021",
+      "description": "\u2022 Expanded the global launch of Instagram Reels Ads by implementing features in Hack and React \u2022 Generated 5x more ad revenue by enabling additional advertisers to opt-in to Reels Ads \u2022 Optimized system performance by employing asynchronous programming paradigms \u2022 Conducted A/B testing to monitor metrics and gradually roll out new features to the public \u2022 Spearheaded projects by defining requirements and collaborating with cross-functional team members\u2026 more",
+      "employment_type": "Full-time"
+    },
+    {
+      "skills": [],
+      "company": "Tesla",
+      "duration": "3 mos",
+      "end_date": "Aug 2020",
+      "location": "Fremont, California, United States",
+      "job_title": "Software Engineer Intern",
+      "start_date": "Jun 2020",
+      "description": "\u2022 Leveraged Django and Python to build full-stack features for vehicle pricing across available markets \u2022 Automated price releases for Tesla vehicles, reducing 20 hours of manual effort to 2 hours per week \u2022 Designed GraphQL and REST API endpoints to provide access to internal services \u2022 Developed multithreaded functions to generate product prices more efficiently \u2022 Utilized a CI/CD pipeline to deploy systems into a containerized environment\u2026 more",
+      "employment_type": "Full-time"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "other": [],
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "honors_awards": [],
+  "certifications": [],
+  "followers_count": "598 followers",
+  "raw_profile_text": "Anthony Zheng\nHe/Him\nSoftware Engineer @ Meta\nMeta \u00b7 Georgia Institute of Technology\nNew York, New York, United States\n500+ connections\n598 followers\n\nAbout\nHey, I'm Anthony! \ud83d\udccd I'm a software engineer at Meta NYC \ud83d\ude04 I love solving problems and helping people \ud83d\udc68\u200d\ud83d\udcbb I'm interested in software and working on meaningful products \ud83d\udcf8 I enjoy discovering new things, documenting memories, and playing music\u2026 more\n\nExperience\nMeta \u00b7 Full-time \u00b7 4 yrs 2 mos \u00b7 New York, New York, United States\n- Senior Software Engineer \u00b7 Jul 2023 - Present \u00b7 2 yrs 9 mos\n- Software Engineer II \u00b7 Jul 2022 - Jun 2023 \u00b7 1 yr\n- Software Engineer \u00b7 Feb 2022 - Jun 2022 \u00b7 5 mos\n\nUndergraduate Teaching Assistant \u00b7 College of Computing at Georgia Tech \u00b7 May 2019 - Dec 2021 \u00b7 2 yrs 8 mos \u00b7 Atlanta, Georgia, United States\n\u2022 Assisted course instructor in teaching 500+ students for CS 1301: Introduction to Computing in Python \u2022 Taught weekly 75-minute recitations to 50 students to reinforce course concepts \u2022 Collaborated closely with the instructor to write, review, and publish assignments and exams \u2022 Held weekly office hours to offer additional help to students on course material and test preparation \u2022 Automated the grading process by developing autograders to conduct unit tests on student submissions\u2026 more\n\nSoftware Engineer Intern \u00b7 Facebook \u00b7 Full-time \u00b7 May 2021 - Aug 2021 \u00b7 4 mos \u00b7 Menlo Park, California, United States\n\u2022 Expanded the global launch of Instagram Reels Ads by implementing features in Hack and React \u2022 Generated 5x more ad revenue by enabling additional advertisers to opt-in to Reels Ads \u2022 Optimized system performance by employing asynchronous programming paradigms \u2022 Conducted A/B testing to monitor metrics and gradually roll out new features to the public \u2022 Spearheaded projects by defining requirements and collaborating with cross-functional team members\u2026 more\n\nSoftware Engineer Intern \u00b7 Tesla \u00b7 Full-time \u00b7 Jun 2020 - Aug 2020 \u00b7 3 mos \u00b7 Fremont, California, United States\n\u2022 Leveraged Django and Python to build full-stack features for vehicle pricing across available markets \u2022 Automated price releases for Tesla vehicles, reducing 20 hours of manual effort to 2 hours per week \u2022 Designed GraphQL and REST API endpoints to provide access to internal services \u2022 Developed multithreaded functions to generate product prices more efficiently \u2022 Utilized a CI/CD pipeline to deploy systems into a containerized environment\u2026 more\n\nEducation\nGeorgia Institute of Technology \u00b7 Bachelor of Science - BS, Computer Science \u00b7 2018 \u2013 2021\nConcentration: \u2022 Information Internetworks \u2022 Media\u2026 more\n\nMatanzas High School \u00b7 High School Diploma \u00b7 2014 \u2013 2018\nActivities and societies: \u2022 Marching Band \u2022 Symphonic Band \u2022 Flagler County All-County Band \u2022 Interact Club \u2022 Leo Club \u2022 National Honor Society \u2022 Mu Alpha Theta \u2022 Varsity Lacrosse\u2026 more\n\nProjects\nWurdle \u2013 Web App \u00b7 Feb 2022 \u2013 Feb 2022 \u00b7 https://antzheng.github.io/wurdle\nChess \u2013 Web App \u00b7 Jul 2021 \u2013 Jul 2021 \u00b7 https://antzheng.github.io/chess/\n\nVolunteering\nLeo Club \u00b7 Matanzas High School \u00b7 Apr 2015 - Apr 2018 \u00b7 3 yrs 1 mo \u00b7 Health\n\u2022 Assisted in orchestrating the biannual Pancake Breakfast at our high school to raise funds for seeing eye dogs for the vision-impaired \u2022 Served as a volunteer in the annual Buddy Walk to promote acceptance and inclusion for those with Down syndrome \u2022 Volunteered in the annual Walk to End Alzheimer's to raise awareness and funds for support, care, and research of Alzheimer's\u2026 more\n\nInteract Club \u00b7 Matanzas High School \u00b7 Dec 2016 - Apr 2018 \u00b7 1 yr 5 mos \u00b7 Disaster and Humanitarian Relief\n\u2022 Distributed 17 tons of food monthly to the town of Pierson, Florida \u2022 Packaged 14,000 meals with Rise Against Hunger each year to send to developing nations \u2022 Worked with other volunteers to pick up trash and clean up the beach annually\u2026 more\n\nSkills\nPython (Passed LinkedIn Skill Assessment; endorsed by Damian H. and 6 others who are highly skilled at this; endorsed by 4 colleagues at Meta)\nJavaScript (Passed LinkedIn Skill Assessment; endorsed by Elton Pinto who is highly skilled at this; endorsed by 4 colleagues at Meta)\n\nRecommendations\nReceived from Soumya Jithu (Principal Architect | Ex-Tesla) on August 18, 2020: Anthony is a very talented developer and and would be an asset to any team. The work that he has accomplished while he was working with Tesla are outstanding. He has in depth knowledge of Python, data structures and algorithms. He writes clean code, has great speed in accomplishing deliverables and is a great team member to work with. All the best for all his future endeavors.\n\nLanguages\nChinese \u2013 Limited working proficiency\nEnglish \u2013 Native or bilingual proficiency\n",
+  "connections_count": "500+",
+  "additional_sections": [
+    {
+      "items": [
+        "Anthony is a very talented developer and and would be an asset to any team. The work that he has accomplished while he was working with Tesla are outstanding. He has in depth knowledge of Python, data structures and algorithms. He writes clean code, has great speed in accomplishing deliverables and is a great team member to work with. All the best for all his future endeavors. (From Soumya Jithu, Principal Architect | Ex-Tesla, August 18, 2020)"
+      ],
+      "section_name": "Recommendations Received"
+    }
+  ],
+  "volunteer_experience": [
+    {
+      "role": "Member / Volunteer",
+      "cause": "Health",
+      "duration": "3 yrs 1 mo",
+      "end_date": "Apr 2018",
+      "location": "Matanzas High School",
+      "start_date": "Apr 2015",
+      "description": "\u2022 Assisted in orchestrating the biannual Pancake Breakfast at our high school to raise funds for seeing eye dogs for the vision-impaired \u2022 Served as a volunteer in the annual Buddy Walk to promote acceptance and inclusion for those with Down syndrome \u2022 Volunteered in the annual Walk to End Alzheimer's to raise awareness and funds for support, care, and research of Alzheimer's\u2026 more",
+      "organization": "Leo Club"
+    },
+    {
+      "role": "Member / Volunteer",
+      "cause": "Disaster and Humanitarian Relief",
+      "duration": "1 yr 5 mos",
+      "end_date": "Apr 2018",
+      "location": "Matanzas High School",
+      "start_date": "Dec 2016",
+      "description": "\u2022 Distributed 17 tons of food monthly to the town of Pierson, Florida \u2022 Packaged 14,000 meals with Rise Against Hunger each year to send to developing nations \u2022\u00a0Worked with other volunteers to pick up trash and clean up the beach annually\u2026 more",
+      "organization": "Interact Club"
+    }
+  ],
+  "url": "https://www.linkedin.com/in/antzheng/",
+  "scraped_at": "2026-03-28T20:35:34.730473+00:00",
+  "source": "regular",
+  "current_company": "Meta"
+}

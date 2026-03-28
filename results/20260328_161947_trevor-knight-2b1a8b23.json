@@ -1,0 +1,159 @@
+{
+  "about": "Mission-driven, highly adaptable software engineer and tech lead with experience in areas such as building new projects, audio, interactive experiences, embedded, AR/VR, machine learning, and mobile. Specializing in working with others and organizing teams to tackle ambiguous, challenging problems to make viable MVPs with a path to productionisation, using high-quality code and engineering best practices.\u2026 more",
+  "skills": [
+    {
+      "name": "Embedded C",
+      "endorsements_count": "",
+      "endorsed_by_top_connections": "Software Development Engineer II at Microsoft"
+    },
+    {
+      "name": "Fixed-point signal processing",
+      "endorsements_count": "",
+      "endorsed_by_top_connections": "Software Development Engineer II at Microsoft"
+    }
+  ],
+  "headline": "Senior Software Engineer / Tech Lead",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "grade": "",
+      "degree": "Masters of Engineering",
+      "school": "McGill University",
+      "end_date": "2012",
+      "activities": "",
+      "start_date": "2010",
+      "description": "Thesis: Analysis of Trumpet Tone Quality Using Machine Learning and Audio Feature Selection\nSupervisor: Ichiro Fujinaga",
+      "field_of_study": "Electrical and computer engineering"
+    },
+    {
+      "grade": "",
+      "degree": "Bachelor's Science",
+      "school": "The Johns Hopkins University",
+      "end_date": "2006",
+      "activities": "",
+      "start_date": "2004",
+      "description": "",
+      "field_of_study": "Biomedical Engineering"
+    }
+  ],
+  "full_name": "Trevor Knight",
+  "languages": [
+    {
+      "language": "French",
+      "proficiency": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "Google",
+      "duration": "7 yrs 8 mos",
+      "end_date": "Jan 2023",
+      "location": "New York, NY",
+      "job_title": "Senior Software Engineer",
+      "start_date": "Jun 2015",
+      "description": "Oct 2021\u2013Jan 2023:\n- Asked to be tech lead of brand new enterprise project within Google\u2019s internal incubator, Area 120.\n- Created the project\u2019s high-level designs and technical plans, led the six-person engineering team to rapidly build and launch app internally and then to external companies. Coached the team through phases of the project from scrappy prototype to productionized app and backend.\n- Impressively quick and quality execution resulted in two successful renewals, an early acquisition offer, and extra resource and personnel allocation.\n- Tapped to be the stand-in when the project's founder went on leave in Nov 2022 and led the whole project: making product decisions, coordinating cross-functional efforts, prioritizing features, and planning user research and go-to-market efforts.\n- Unfortunately, all of the Area120 incubator was shutdown with the Google layoffs. See http://antologi.area120.com for features and visuals.\n\n2017 \u2013 Nov 2021: Software engineer within Jigsaw, see below.\n\n2015\u20132016:\n- Created a \u201cLocal Favorites\u201d recommendation algorithm for users in a new location to highlight local taste and talent, resulting in higher user retention and playback for new users.\n- Worked with the design team to address the top Android app UI bugs, as well as fixed many accessibility and right-to-left language issues to bring the app up to Google standards.\u2026 more",
+      "employment_type": "",
+      "company_industry": "",
+      "company_location": ""
+    },
+    {
+      "company": "Jigsaw",
+      "duration": "4 yrs 5 mos",
+      "end_date": "Oct 2021",
+      "location": "",
+      "job_title": "Senior Software Engineer",
+      "start_date": "Jun 2017",
+      "description": "- On a team of a three to five engineers who created Trainer, a VR training tool for law enforcement to simulate emotional and potentially violent interactions with virtual characters to practice de-escalation.\n- Designed, led, and largely implemented the C++ codebase that drives the behavior of the virtual character based on user speech, actions, interactions, tone of voice, word choice, and more.\n- Collaborated with user researchers, designers, subject matter experts to test with real users and drove the efforts to improve the usability, realism, and pedagogical value of the project, resulting in significantly higher measures of user value and realism.\n- Designed and implemented many of the infrastructure pieces of the codebase such as a resilient OAuth login, feature flag system, DLL interfaces, and integrating open source dependencies.\n- Mentored and supervised new team members to help them become highly productive quickly.\n- Founded and ran a much lauded Jigsaw-wide new hire mentorship program.\n\nJigsaw is partnering with University of Maryland, Morehouse College, Georgetown University Law School, and the University of Cincinnati to continue and expand on the project and research.\u2026 more",
+      "employment_type": "",
+      "company_industry": "",
+      "company_location": ""
+    },
+    {
+      "company": "Microsoft",
+      "duration": "2 yrs 9 mos",
+      "end_date": "Apr 2015",
+      "location": "Redmond, Washington",
+      "job_title": "Software Development Engineer II",
+      "start_date": "Aug 2012",
+      "description": "Audio Recognition Team:\n- Created, maintained, refactored, and supported cloud services for audio fingerprinting, that supported successful integrations to identify songs in the user's environment, songs in audio files, and live television programs.\n- Prototyped an always-on, on-device music recognition service in Node.js which was sufficiently compelling that Windows Phone decided to adopt the underlying framework.\n\nHololens Research and Development Team:\n- Implemented the embedded fixed-point signal processing pipeline for the four HoloLens microphones (beamforming, echo cancellation, noise suppression) with a very limited compute budget to provide crystal clear audio to the speech recognition engine and communication apps.\n- Optimized the pipeline using a distributed compute cluster to select the best results from hundreds of thousands of parameter sets.\u2026 more",
+      "employment_type": "",
+      "company_industry": "",
+      "company_location": ""
+    },
+    {
+      "company": "Noteloop Systems, Inc.",
+      "duration": "10 mos",
+      "end_date": "Sep 2012",
+      "location": "Greater Montreal Metropolitan Area",
+      "job_title": "Software Developer",
+      "start_date": "Dec 2011",
+      "description": "- Developed several components of the software in C++ including music information retrieval algorithms, manipulation of file and music formats, and the integration of various components of the program.\n- Instrumental in product strategy and direction with the identification of target users and designing appropriate feature set and interfaces.\u2026 more",
+      "employment_type": "",
+      "company_industry": "",
+      "company_location": ""
+    },
+    {
+      "company": "Shared Reality Lab, McGill University",
+      "duration": "1 yr 8 mos",
+      "end_date": "Aug 2011",
+      "location": "Greater Montreal Metropolitan Area",
+      "job_title": "Lab member, software developer",
+      "start_date": "Jan 2010",
+      "description": "- Designed and programmed software for the analysis and visualization of musical performance to allow student self-assessment, resulting in easier understanding and increased learning.\n- Conceived, executed, and published usability study on efficacy of visual feedback for musicians presented at Visualization and Data Analysis (VDA) conference in January 2012.\u2026 more",
+      "employment_type": "",
+      "company_industry": "",
+      "company_location": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "other": [],
+    "phone": "",
+    "address": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [
+    {
+      "date": "May 1, 2012",
+      "title": "A high-fidelity orchestra simulator for individual musicians\u2019 practice",
+      "publisher": "Computer Music Journal",
+      "description": "",
+      "publication_url": "http://www.mitpressjournals.org/doi/abs/10.1162/COMJ_a_00119"
+    },
+    {
+      "date": "Jan 1, 2012",
+      "title": "Visualization feedback for musical ensemble practice: A case study on phrase articulation and dynamics",
+      "publisher": "Proc. of the Visualization and Data Analysis Conf.",
+      "description": "",
+      "publication_url": "http://vda-conference.org/2012/program.html"
+    }
+  ],
+  "honors_awards": [],
+  "certifications": [],
+  "current_company": "Google",
+  "followers_count": "330 followers",
+  "current_position": "Senior Software Engineer",
+  "raw_profile_text": "Trevor Knight\nSenior Software Engineer / Tech Lead\nGoogle\nNew York, New York, United States\nContact info\nGoogle\n323 connections\n\nAbout\nMission-driven, highly adaptable software engineer and tech lead with experience in areas such as building new projects, audio, interactive experiences, embedded, AR/VR, machine learning, and mobile. Specializing in working with others and organizing teams to tackle ambiguous, challenging problems to make viable MVPs with a path to productionisation, using high-quality code and engineering best practices.\u2026 more\n\nActivity\n330 followers\nTrevor has no recent posts\n\nExperience\nSenior Software Engineer\nGoogle\nJun 2015 - Jan 2023 \u00b7 7 yrs 8 mos\nNew York, NY\nOct 2021\u2013Jan 2023: - Asked to be tech lead of brand new enterprise project within Google\u2019s internal incubator, Area 120. - Created the project\u2019s high-level designs and technical plans, led the six-person engineering team to rapidly build and launch app internally and then to external companies. Coached the team through phases of the project from scrappy prototype to productionized app and backend. - Impressively quick and quality execution resulted in two successful renewals, an early acquisition offer, and extra resource and personnel allocation. - Tapped to be the stand-in when the project's founder went on leave in Nov 2022 and led the whole project: making product decisions, coordinating cross-functional efforts, prioritizing features, and planning user research and go-to-market efforts. - Unfortunately, all of the Area120 incubator was shutdown with the Google layoffs. See http://antologi.area120.com for features and visuals.\n2017 \u2013 Nov 2021: Software engineer within Jigsaw, see below.\n2015\u20132016: - Created a \u201cLocal Favorites\u201d recommendation algorithm for users in a new location to highlight local taste and talent, resulting in higher user retention and playback for new users. - Worked with the design team to address the top Android app UI bugs, as well as fixed many accessibility and right-to-left language issues to bring the app up to Google standards.\u2026 more\n\nSenior Software Engineer\nJigsaw\nJun 2017 - Oct 2021 \u00b7 4 yrs 5 mos\n- On a team of a three to five engineers who created Trainer, a VR training tool for law enforcement to simulate emotional and potentially violent interactions with virtual characters to practice de-escalation. - Designed, led, and largely implemented the C++ codebase that drives the behavior of the virtual character based on user speech, actions, interactions, tone of voice, word choice, and more. - Collaborated with user researchers, designers, subject matter experts to test with real users and drove the efforts to improve the usability, realism, and pedagogical value of the project, resulting in significantly higher measures of user value and realism. - Designed and implemented many of the infrastructure pieces of the codebase such as a resilient OAuth login, feature flag system, DLL interfaces, and integrating open source dependencies. - Mentored and supervised new team members to help them become highly productive quickly. - Founded and ran a much lauded Jigsaw-wide new hire mentorship program. Jigsaw is partnering with University of Maryland, Morehouse College, Georgetown University Law School, and the University of Cincinnati to continue and expand on the project and research.\u2026 more\n\nSoftware Development Engineer II\nMicrosoft\nAug 2012 - Apr 2015 \u00b7 2 yrs 9 mos\nRedmond, Washington\nAudio Recognition Team: - Created, maintained, refactored, and supported cloud services for audio fingerprinting, that supported successful integrations to identify songs in the user's environment, songs in audio files, and live television programs. - Prototyped an always-on, on-device music recognition service in Node.js which was sufficiently compelling that Windows Phone decided to adopt the underlying framework.\nHololens Research and Development Team: - Implemented the embedded fixed-point signal processing pipeline for the four HoloLens microphones (beamforming, echo cancellation, noise suppression) with a very limited compute budget to provide crystal clear audio to the speech recognition engine and communication apps. - Optimized the pipeline using a distributed compute cluster to select the best results from hundreds of thousands of parameter sets.\u2026 more\n\nSoftware Developer\nNoteloop Systems, Inc.\nDec 2011 - Sep 2012 \u00b7 10 mos\nGreater Montreal Metropolitan Area\n- Developed several components of the software in C++ including music information retrieval algorithms, manipulation of file and music formats, and the integration of various components of the program. - Instrumental in product strategy and direction with the identification of target users and designing appropriate feature set and interfaces.\u2026 more\n\nLab member, software developer\nShared Reality Lab, McGill University\nJan 2010 - Aug 2011 \u00b7 1 yr 8 mos\nGreater Montreal Metropolitan Area\n- Designed and programmed software for the analysis and visualization of musical performance to allow student self-assessment, resulting in easier understanding and increased learning. - Conceived, executed, and published usability study on efficacy of visual feedback for musicians presented at Visualization and Data Analysis (VDA) conference in January 2012.\u2026 more\n\nEducation\nMcGill University\nMasters of Engineering, Electrical and computer engineering\n2010 \u2013 2012\nThesis: Analysis of Trumpet Tone Quality Using Machine Learning and Audio Feature Selection\nSupervisor: Ichiro Fujinaga\n\nThe Johns Hopkins University\nBachelor's Science, Biomedical Engineering\n2004 \u2013 2006\n\nSkills\nEmbedded C\nSoftware Development Engineer II at Microsoft\nFixed-point signal processing\nSoftware Development Engineer II at Microsoft\n\nRecommendations\nReceived\nMarcelo Wanderley \u2013 Professor of Music Technology at McGill University \u2013 May 10, 2012\n\"Trevor was an excellent student in my graduate class (MUMT620 - HCI and Music). He is also a great colleague at CIRMMT, committed to the work at the Centre and leading the student colloquium series on Music Technology.\"\n\nPublications\nA high-fidelity orchestra simulator for individual musicians\u2019 practice\nComputer Music Journal \u00b7 May 1, 2012\n\nVisualization feedback for musical ensemble practice: A case study on phrase articulation and dynamics\nProc. of the Visualization and Data Analysis Conf. \u00b7 Jan 1, 2012\n\nLanguages\nFrench\n\nInterests\nHuman Computer Interaction\nAlgorithms\n",
+  "connections_count": "323",
+  "additional_sections": [
+    {
+      "items": [
+        "Trevor was an excellent student in my graduate class (MUMT620 - HCI and Music). He is also a great colleague at CIRMMT, committed to the work at the Centre and leading the student colloquium series on Music Technology."
+      ],
+      "section_name": "Recommendations Received"
+    },
+    {
+      "items": [
+        "Human Computer Interaction",
+        "Algorithms"
+      ],
+      "section_name": "Interests - Companies/Skills"
+    }
+  ],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/trevor-knight-2b1a8b23/",
+  "scraped_at": "2026-03-28T20:28:11.508436+00:00",
+  "source": "regular"
+}

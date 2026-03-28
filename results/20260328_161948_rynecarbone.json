@@ -1,0 +1,226 @@
+{
+  "about": "Machine Learning expert with extensive quantitative and technical leadership experience. I deliver impactful tailored solutions by leveraging creativity, problem solving, collaboration, effective framing, and clear communication.",
+  "skills": [
+    {
+      "skill_name": "Python",
+      "endorsements_count": "6 endorsements",
+      "endorsed_by_top_connections": "Endorsed by 2 colleagues at Columbia University; Endorsed by 3 people in the last 6 months"
+    },
+    {
+      "skill_name": "R",
+      "endorsements_count": "6 endorsements",
+      "endorsed_by_top_connections": "Endorsed by 2 colleagues at Columbia University; Endorsed by 3 people in the last 6 months"
+    }
+  ],
+  "headline": "Staff Machine Learning Engineer at Ramp",
+  "industry": "",
+  "location": "New York, New York, United States",
+  "projects": [
+    {
+      "name": "Fantasy Scoring",
+      "role": "",
+      "end_date": "Present",
+      "start_date": "Sep 2018",
+      "description": "- Built interactive visualization aggregating positional value across fantasy football scoring and roster settings - Visualization implemented with bokeh and pscript, scraping and tidying performed in R\u2026 more",
+      "project_url": "https://github.com/rynecarbone/fantasy_scoring",
+      "associated_with": ""
+    },
+    {
+      "name": "PhD Dissertation",
+      "role": "",
+      "end_date": "Oct 2017",
+      "start_date": "Jun 2014",
+      "description": "A search for new diboson resonances in the boosted semi-leptonic final state at \u221as = 13 TeV with the ATLAS detector",
+      "project_url": "https://doi.org/10.7916/D8V98MK0",
+      "associated_with": "Columbia University in the City of New York"
+    }
+  ],
+  "education": [
+    {
+      "grade": "",
+      "degree": "Doctor of Philosophy - PhD",
+      "school": "Columbia University",
+      "end_date": "2017",
+      "activities": "",
+      "start_date": "2014",
+      "description": "Dean's Fellow",
+      "field_of_study": "Physics"
+    },
+    {
+      "grade": "",
+      "degree": "Master\u2019s Degree",
+      "school": "Columbia University",
+      "end_date": "2014",
+      "activities": "",
+      "start_date": "2012",
+      "description": "Graduated with a Masters of Arts (M.A.) and a Masters of Philosophy (M.Phil) in Physics in 2014.",
+      "field_of_study": "Physics"
+    }
+  ],
+  "full_name": "Ryne Carbone",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native or bilingual proficiency"
+    },
+    {
+      "language": "French",
+      "proficiency": "Limited working proficiency"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "1 yr 6 mos",
+      "end_date": "Present",
+      "location": "New York, New York, United States",
+      "job_title": "Staff Machine Learning Engineer",
+      "start_date": "Oct 2024",
+      "description": "",
+      "location_type": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Ramp",
+      "duration": "1 yr 4 mos",
+      "end_date": "Oct 2024",
+      "location": "New York, New York, United States",
+      "job_title": "Senior Machine Learning Engineer",
+      "start_date": "Jul 2023",
+      "description": "",
+      "location_type": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Square",
+      "duration": "8 mos",
+      "end_date": "May 2023",
+      "location": "New York, New York, United States",
+      "job_title": "Machine Learning Engineer (L6)",
+      "start_date": "Oct 2022",
+      "description": "",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Square",
+      "duration": "1 yr 7 mos",
+      "end_date": "Oct 2022",
+      "location": "New York, New York, United States",
+      "job_title": "Machine Learning Engineer (L5)",
+      "start_date": "Apr 2021",
+      "description": "",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "JPMorgan Chase & Co.",
+      "duration": "1 yr 3 mos",
+      "end_date": "Apr 2021",
+      "location": "New York, New York",
+      "job_title": "Vice President - Data Scientist Lead",
+      "start_date": "Feb 2020",
+      "description": "",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "JPMorgan Chase & Co.",
+      "duration": "1 yr",
+      "end_date": "Jan 2020",
+      "location": "New York, New York",
+      "job_title": "Data Scientist",
+      "start_date": "Feb 2019",
+      "description": "",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Unified",
+      "duration": "11 mos",
+      "end_date": "Dec 2018",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Data Scientist",
+      "start_date": "Feb 2018",
+      "description": "",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Columbia University in the City of New York",
+      "duration": "4 yrs 5 mos",
+      "end_date": "Oct 2017",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Graduate Student Researcher",
+      "start_date": "Jun 2013",
+      "description": "Performed particle physics research with the ATLAS experiment at the CERN Large Hadron Collider in Geneva, Switzerland, looking for new particle resonances beyond the Standard Model Search for exotic new physics phenomena in high-energy particle collisions: \u25c6 Optimized search space by profiling simulated signal sensitivity, leading to strongest theoretical results at time \u25c6 Led statistical analysis employing simultaneous maximum likelihood fits, Monte Carlo modeling, and Boosted Decision Trees \u25c6 Developed C++ framework with parallel computing, filtering TBs of data down to GB scale for analysis \u25c6 Employed clear and effective data visualization techniques to interpret and present results Precision timing calibration of the Liquid Argon Calorimeter for the ATLAS Detector: \u25c6 Constructed C++ package implementing algorithms to extract detector calibrations from 18 million particle collisions \u25c6 Provided streamlined framework to distribute results for use by other ATLAS teams Research and development of Nevis 12 ADC, a custom integrated circuit for upgrade of ATLAS Detector \u25c6 Developed C# GUI for automated, remote calibration of prototype ADCs \u25c6 Efficiently characterized performance of ADCs during proton-beam irradiation using automated procedure\u2026 more",
+      "location_type": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Columbia University in the City of New York",
+      "duration": "1 yr 10 mos",
+      "end_date": "Jun 2014",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Graduate Teaching Assistant",
+      "start_date": "Sep 2012",
+      "description": "Taught courses for undergraduates including \u25c6 Physics III: Classical and Quantum Waves (C2601) \u25c6 Intermediate Physics Electronics Lab (W3083) \u25c6 Introductory Physics Lab Sequence (W1291 & W1292) \u25c6 Physics for Poets (C1001) \u25c6 Columbia University Science Honors Program - Particle Physics (High School Students)\u2026 more",
+      "location_type": "",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "address": "",
+    "twitter": "",
+    "website": "",
+    "other_contacts": ""
+  },
+  "publications": [
+    {
+      "date": "Mar 1, 2018",
+      "title": "Search for WW/WZ resonance production in lvqq final states in pp collisions at sqrt(s) = 13 TeV with the ATLAS detector",
+      "authors": "",
+      "publisher": "Journal of High Energy Physics",
+      "description": "",
+      "publication_url": "https://link.springer.com/article/10.1007%2FJHEP03%25282018%2529042"
+    },
+    {
+      "date": "May 1, 2017",
+      "title": "A radiation-hard dual-channel 12-bit 40 MS/s ADC prototype for the ATLAS liquid argon calorime- ter readout electronics upgrade at the CERN LHC",
+      "authors": "Other authors +5",
+      "publisher": "Nucl. Instrum. Meth. A",
+      "description": "",
+      "publication_url": "http://doi.org/10.1016/j.nima.2017.01.025"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Convolutional Neural Networks",
+      "issuer": "Coursera",
+      "issue_date": "Nov 2017",
+      "credential_id": "3WG4WQM7NEXD",
+      "credential_url": "https://www.coursera.org/account/accomplishments/verify/3WG4WQM7NEXD",
+      "expiration_date": ""
+    },
+    {
+      "name": "Structuring Machine Learning Projects",
+      "issuer": "Coursera",
+      "issue_date": "Nov 2017",
+      "credential_id": "4MP2J98F9APV",
+      "credential_url": "https://www.coursera.org/account/accomplishments/verify/4MP2J98F9APV",
+      "expiration_date": ""
+    }
+  ],
+  "followers_count": "1,684 followers",
+  "current_position": "Staff Machine Learning Engineer at Ramp",
+  "connections_count": "500+ connections",
+  "honors_and_awards": [],
+  "additional_sections": "Activity section highlights (posts and reposts):\n- Post (2w \u2022 Edited): Benchmarking agent performance on real-world tasks for finance professionals at Ramp; links to Ramp Engineering Blog article \"Ramp's Frontier Model Financial Benchmarks (March, 2026)\" (4-page document). Mentions models like Gemini, GPT-5.1-high, GPT-5.4, Opus 4.6 and insights on multimodal performance, reliability, and cost.\n- Post (3mo): Announcement that Ramp renewed and expanded its Applied Science Summer Internship program for PhD or Master's students graduating in 2027; links to jobs.ashbyhq.com posting.\n- Post (5mo): Shares personal blog post \"Genie in a Model: Wishing for More Wishes\" on runthedata.dev about LLMs and how they help developers think, design, and build differently.\n- Post (8mo): Shares personal blog post \"Genie in a Model: My Prompt Is Your Command\" on runthedata.dev about concrete ways of using LLMs and workflow changes.\n- Post (10mo): Shares personal blog post \"Angsty LLMs\" on runthedata.dev discussing the state of LLMs and future directions.\n- Repost (1yr): Reposts Ryan Stevens' hiring post for \"Staff MLE for Identity at Ramp\" (fraud/identity ML role) with link to Ashby job posting.\n- Repost (1yr \u2022 Edited): Reposts Ryan Stevens' blog announcement \"Turbo-Charging ML Development\" on engineering.ramp.com about a YAML-based system for ML deployments at Ramp.\n- Post (1yr): Shares Ramp Engineering blog post \"From RAG to Richness: How Ramp Revamped Industry Classification\" on engineering.ramp.com, describing a RAG-based system for industry classification.\n- Repost (1yr): Reposts Ian Macomber's event announcement \"Friends of Data Live! with Ian Macomber from Ramp\" cohosted with Hex at Ramp HQ in NYC, with RSVP link on lu.ma.\n- Post (1yr): Shares Summer 2025 Applied Scientist Intern role at Ramp (jobs.ashbyhq.com) and encourages STEM Masters/PhD students to apply.\n\nInterests / Causes:\n- Follows Andrew Ng (DeepLearning.AI, AI Fund and AI Aspire) \u2013 2,436,622 followers.\n- Causes listed: Arts and Culture; Economic Empowerment; Education; Environment; Health; Politics; Science and Technology.",
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/rynecarbone/",
+  "scraped_at": "2026-03-28T20:31:42.724761+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

@@ -1,0 +1,138 @@
+{
+  "about": "",
+  "skills": [
+    {
+      "name": "Recommender Systems",
+      "category": "",
+      "endorsements_count": ""
+    },
+    {
+      "name": "Mobile Applications",
+      "category": "",
+      "endorsements_count": "14 endorsements"
+    }
+  ],
+  "headline": "Software Engineer @ Ramp",
+  "location": "United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor of Science (BS)",
+      "school": "The Wharton School",
+      "date_range": "2012 \u2013 2016",
+      "description": "",
+      "field_of_study": "Economics, Concentrations in Finance and Operations & Information Management",
+      "activities_and_societies": "Jerome Fisher Program in Management and Technology, Wharton Undergraduate Entrepreneurship Club, Phi Delta Theta Fraternity"
+    },
+    {
+      "degree": "Bachelor of Applied Science (BASc)",
+      "school": "University of Pennsylvania",
+      "date_range": "2012 \u2013 2016",
+      "description": "",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": "Jerome Fisher Program in Management and Technology, Hexagon Senior Society"
+    }
+  ],
+  "full_name": "Brian Schroeder",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Ramp",
+      "duration": "1 yr",
+      "location": "New York, New York, United States",
+      "job_title": "Principal Software Engineer",
+      "date_range": "Apr 2025 - Present",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Ramp",
+      "duration": "1 yr 7 mos",
+      "location": "New York, New York, United States",
+      "job_title": "Staff Software Engineer",
+      "date_range": "Oct 2023 - Apr 2025",
+      "description": "",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Arena",
+      "duration": "4 yrs 1 mo",
+      "location": "New York, New York, United States",
+      "job_title": "Founding Engineer",
+      "date_range": "Sep 2019 - Sep 2023",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Palantir Technologies",
+      "duration": "3 yrs 1 mo",
+      "location": "Greater New York City Area",
+      "job_title": "Software Engineer",
+      "date_range": "Aug 2016 - Aug 2019",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "AQR Capital Management",
+      "duration": "3 mos",
+      "location": "Greenwich, Connecticut",
+      "job_title": "Summer Research Analyst",
+      "date_range": "Jun 2015 - Aug 2015",
+      "description": "Managed futures research",
+      "employment_type": ""
+    },
+    {
+      "company": "Palantir Technologies",
+      "duration": "3 mos",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Forward Deployed Engineer Intern",
+      "date_range": "Jun 2014 - Aug 2014",
+      "description": "- Scoped and developed a custom plugin for Palantir Gotham for a federal government agency - Developed an audit-logging feature for a Palantir product used to investigate trade-based money laundering \u2026 more",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "other": [],
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "621 followers",
+  "connections_count": "500+ connections",
+  "honors_and_awards": [
+    {
+      "date": "May 2016",
+      "title": "Summa Cum Laude",
+      "issuer": "University of Pennsylvania - The Wharton School",
+      "description": ""
+    },
+    {
+      "date": "",
+      "title": "Dean's List 2012-2016",
+      "issuer": "University of Pennsylvania - The Wharton School",
+      "description": "The Dean\u2019s List citation appears on the transcript and is awarded annually to any student who achieves a cumulative GPA of 3.70 or higher for the academic year."
+    }
+  ],
+  "additional_sections": [
+    {
+      "content": "Brian Burke \u00b7 3rd\n\ud83c\udf4e Brian The Mac Man | WaterFront Realtor | Chief Enjoyment Officer | Hustle, Sun & Fun \ud83c\udf34\nMay 5, 2011, Brian was Brian\u2019s client\n\nBrian's work has always been above expectations and he is a pleasure to work with. I have used Brian for development of 3 of my apps: \"Sell Your Computer,\" \"Expen$e Reports.\" and \"iShaka.\" Additionally, Brian created my SellYourMac.com logo, which you can see by visiting my website at http://www.sellyourmac.com/. I recommend Brian for your app development and graphic design needs.",
+      "section_name": "Recommendations Received"
+    },
+    {
+      "content": "Capital Markets (FNCE-238) \u2013 Associated with University of Pennsylvania - The Wharton School\nComputer Organization and Design (CIS-371) \u2013 Associated with University of Pennsylvania",
+      "section_name": "Courses"
+    },
+    {
+      "content": "Phi Delta Theta Fraternity \u2013 Treasurer \u00b7 Feb 2013 \u2013 Feb 2015 \u2013 Associated with University of Pennsylvania - The Wharton School",
+      "section_name": "Organizations"
+    }
+  ],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/brian-schroeder-a7978b28/",
+  "scraped_at": "2026-03-28T20:22:14.928701+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

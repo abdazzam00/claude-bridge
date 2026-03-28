@@ -1,0 +1,149 @@
+{
+  "about": "",
+  "skills": [
+    {
+      "name": "EMT",
+      "endorsement_count": 0
+    },
+    {
+      "name": "Payment Systems",
+      "endorsement_count": 3
+    }
+  ],
+  "headline": "ML Engineer",
+  "location": "New York City Metropolitan Area",
+  "projects": [],
+  "education": [
+    {
+      "degree": "BS",
+      "school": "University of Virginia",
+      "end_date": "2013",
+      "date_range": "2009 \u2013 2013",
+      "start_date": "2009",
+      "description": "",
+      "field_of_study": "Aerospace Engineering",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Shruti Patel",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native or bilingual proficiency"
+    },
+    {
+      "language": "Gujarati",
+      "proficiency": "Native or bilingual proficiency"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Ramp",
+      "end_date": "Jan 2025",
+      "location": "",
+      "job_title": "Staff Software Engineer",
+      "date_range": "Sep 2022 - Jan 2025 \u00b7 2 yrs 5 mos",
+      "start_date": "Sep 2022",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Capital One",
+      "end_date": "Aug 2022",
+      "location": "",
+      "job_title": "Senior Machine Learning Engineer",
+      "date_range": "Jun 2021 - Aug 2022 \u00b7 1 yr 3 mos",
+      "start_date": "Jun 2021",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Capital One",
+      "end_date": "Jun 2021",
+      "location": "",
+      "job_title": "Senior Software Engineer",
+      "date_range": "Nov 2017 - Jun 2021 \u00b7 3 yrs 8 mos",
+      "start_date": "Nov 2017",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Notch, Co.",
+      "end_date": "Nov 2017",
+      "location": "",
+      "job_title": "Software Engineer",
+      "date_range": "Oct 2015 - Nov 2017 \u00b7 2 yrs 2 mos",
+      "start_date": "Oct 2015",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "MAXX Potential",
+      "end_date": "Sep 2015",
+      "location": "",
+      "job_title": "Junior Software Developer",
+      "date_range": "Mar 2014 - Sep 2015 \u00b7 1 yr 7 mos",
+      "start_date": "Mar 2014",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "JefferSat",
+      "end_date": "May 2013",
+      "location": "Greater Charlottesville Area",
+      "job_title": "Team Lead for Power, Thermal, and Environment",
+      "date_range": "Aug 2012 - May 2013 \u00b7 10 mos",
+      "start_date": "Aug 2012",
+      "description": "",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": 911,
+  "connections_count": 500,
+  "honors_and_awards": [
+    {
+      "date": "Aug 2015",
+      "title": "Technology Builder",
+      "issuer": "Margaret Lyn McDermid Awards \u00b7 Associated with MAXX Potential",
+      "description": ""
+    }
+  ],
+  "additional_sections": {
+    "licenses": [],
+    "organizations": []
+  },
+  "volunteer_experience": [
+    {
+      "role": "Board Member",
+      "cause": "",
+      "end_date": "Mar 2025",
+      "location": "",
+      "date_range": "Sep 2020 - Mar 2025 \u00b7 4 yrs 7 mos",
+      "start_date": "Sep 2020",
+      "description": "Kennedy Children\u2019s Center (KCC) is a 501(c)(3) nonprofit dedicated to providing high quality education services to young children with developmental delays, in partnership with families and communities.\u2026 more",
+      "organization": "Kennedy Children's Center"
+    },
+    {
+      "role": "Emergency Medical Technician",
+      "cause": "Health",
+      "end_date": "Jul 2022",
+      "location": "",
+      "date_range": "Sep 2019 - Jul 2022 \u00b7 2 yrs 11 mos",
+      "start_date": "Sep 2019",
+      "description": "",
+      "organization": "HOBOKEN VOLUNTEER AMBULANCE CORP"
+    }
+  ],
+  "url": "https://www.linkedin.com/in/shruti222patel/",
+  "scraped_at": "2026-03-28T20:26:15.148384+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

@@ -1,0 +1,103 @@
+{
+  "about": "I\u2019m a software engineer working on consumer facing products. I enjoy building solutions that provide real world value to people at scale. I\u2019m adept at iOS, web, and backend technologies.",
+  "skills": [
+    {
+      "name": "LangChain",
+      "endorsement_count": ""
+    },
+    {
+      "name": "Ruby",
+      "endorsement_count": ""
+    }
+  ],
+  "headline": "Founding Engineer at Tempo",
+  "location": "New York City Metropolitan Area",
+  "projects": [
+    {
+      "url": "https://github.com/jhong70/JKHImageZoomTransition",
+      "name": "JKHImageZoomTransition",
+      "date_range": "Aug 2016 \u2013 Present",
+      "description": "An open source iOS Swift 3 framework that allows users to add Apple-esque view controller transitions between images. Built using Apple's UIViewControllerAnimation APIs and CoreGraphics.",
+      "associated_with": ""
+    },
+    {
+      "url": "https://github.com/nanop/Team8Paper",
+      "name": "Team8Paper",
+      "date_range": "Jan 2014 \u2013 Present",
+      "description": "We are building a web application called \u201cTeam 8 Paper\u201d that brings the convenience and usefulness of paper, a material used since ancient times, to the digital era. Our product is a note\u00adtaking web application that allows users to easily take notes like a text editor, and easily organizkzhoue elements like using a bulletin board or sticky notes. Usage of the application will be similar to a blank sheet of paper, allowing users to write almost anywhere on the screen as opposed to writing from top to bottom in a text editor. As a web application, users can share, view, and manage their papers on any browser connected to the internet. Keeping up with modern mediums of communication, users can also embed media from sources such as Youtube and image urls. Each sheet may be labeled with tags for easy organization. Papers may also be linked with other papers. Finally, a history of changes will be stored so users can view when each element in a sheet was created and updated.\u2026 more",
+      "associated_with": "Georgia Institute of Technology"
+    }
+  ],
+  "education": [
+    {
+      "degree": "",
+      "school": "Georgia Institute of Technology",
+      "date_range": "2010 \u2013 2014",
+      "description": "Grade: 3.57\n\nDeveloped my understanding of the fundamentals of programming (languages, algorithms, data structures, time/space complexity) as well as platform level fundamentals (kernel, scheduling, memory management) and media centric technologies (Unity,HTML, JS, CSS).\u2026 more",
+      "field_of_study": "Computer Science, Media & Platforms",
+      "activities_and_societies": "Georgia Institute of Technology Mobile Applications Development Group"
+    }
+  ],
+  "full_name": "Joon Ki Hong",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Tempo",
+      "location": "New York, New York, United States",
+      "job_title": "Founding Engineer",
+      "date_range": "Jul 2022 - Present \u00b7 3 yrs 9 mos",
+      "description": "Building something new",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Travel",
+      "location": "New York City Metropolitan Area",
+      "job_title": "Career break",
+      "date_range": "Apr 2022 - Jul 2022 \u00b7 4 mos",
+      "description": "",
+      "employment_type": ""
+    },
+    {
+      "company": "Instagram",
+      "location": "New York, New York, United States",
+      "job_title": "Software Engineer",
+      "date_range": "Jul 2020 - Apr 2022 \u00b7 1 yr 10 mos",
+      "description": "Built various shopping experiences on Instagram",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Meta",
+      "location": "New York, New York",
+      "job_title": "Software Engineer",
+      "date_range": "Aug 2017 - Apr 2022 \u00b7 4 yrs 9 mos",
+      "description": "Built various product experiences including Facebook pages, ratings and reviews, and news.",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Publicis Sapient",
+      "location": "New York, New York",
+      "job_title": "Mobile Developer",
+      "date_range": "Jun 2014 - Jul 2017 \u00b7 3 yrs 2 mos",
+      "description": "Worked as part of the mobile solutions team to develop iOS/Web applications to meet client requirements for interactive, creative and engaging user experiences. Successfully worked with clients such as Goldman Sachs, the Miami Heat, Mercedes-Benz and Michael Kors on iOS feature development and debugging of highly customized and publicly available applications as well as built internal capabilities ranging from iOS apps to REST services, websites and APIs.\u2026 more",
+      "employment_type": ""
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": "",
+    "other_contacts": ""
+  },
+  "publications": [],
+  "honors_awards": [],
+  "certifications": [],
+  "followers_count": "324 followers",
+  "connections_count": "307",
+  "additional_sections": "Skills mentioned in context of roles (not full skills list, but visible snippets):\n- At Tempo (Founding Engineer): Swift (Programming Language), Python and +5 skills\n- At Instagram (Software Engineer): Objective-C, PHP and +2 skills\n- At Meta (Software Engineer): JavaScript, React.js and +2 skills\n- At Publicis Sapient (Mobile Developer): Objective-C, Swift (Programming Language) and +1 skill\n\nRecommendations (Received):\n- From: Mike Mo \u2013 Account Executive, Data Foundation (MuleSoft & Informatica) Healthcare and Life Sciences; relationship: studied together; date: July 16, 2014.\n  Text: \"Joon Ki is an insightful and creative individual who consistently delivers excellent and incisive contributions and results. In a team environment, Joon Ki provides different and acute perceptions that improve the team dynamic which allow him to solidify the foundation for future professional relationships. He applies these same imaginative and precise values into his computer programming and coding resulting in different and innovative ideas.\u2026 more\"\n\nActivity section: \"Joon Ki has no recent posts\"; 324 followers; Follow button visible.\n\nInterests (Top Voices examples shown):\n- Kevin O'Leary \u2013 Chairman, O\u2019Leary Ventures and Beanstox \u2013 4,537,851 followers\n- Satya Nadella \u2013 Chairman and CEO at Microsoft \u2013 11,920,094 followers\n\nCauses:\n- Science and Technology\n\nPeople/companies shown as related or \"More profiles for you\" / \"People you may know\" / \"You might like\" are navigation suggestions and not part of Joon Ki Hong\u2019s own profile data.",
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/jhong70/",
+  "scraped_at": "2026-03-28T20:23:42.606704+00:00",
+  "source": "regular",
+  "current_company": "Tempo"
+}

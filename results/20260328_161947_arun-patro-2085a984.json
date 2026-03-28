@@ -1,0 +1,109 @@
+{
+  "skills": [
+    {
+      "name": "Computer Vision"
+    },
+    {
+      "name": "Python"
+    }
+  ],
+  "summary": "",
+  "headline": "Software Engineer",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Master of Science - MS",
+      "school": "New York University",
+      "date_range": "Sep 2022 \u2013 May 2024",
+      "field_of_study": "Computer Science",
+      "activities_and_societies": ""
+    },
+    {
+      "degree": "Dual Degree - B.Tech and M.Tech",
+      "school": "Indian Institute of Technology, Kharagpur",
+      "date_range": "2013 \u2013 2018",
+      "field_of_study": "Electrical Engineering",
+      "activities_and_societies": ""
+    }
+  ],
+  "full_name": "Arun Patro",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": ""
+    },
+    {
+      "language": "Hindi",
+      "proficiency": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "Ramp",
+      "location": "New York City",
+      "job_title": "Software Engineer",
+      "date_range": "Jun 2024 - Present \u00b7 1 yr 10 mos",
+      "description": "Supercharging Ramp with Applied AI",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Courant Institute of Mathematical Sciences",
+      "location": "New York, United States",
+      "job_title": "Graduate Student",
+      "date_range": "Sep 2022 - May 2024 \u00b7 1 yr 9 mos",
+      "description": "I am a CS student at NYU Courant. Interested in ML, NLP, Compilers and Graphics.",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Normal Computing",
+      "location": "New York, United States \u00b7 On-site",
+      "job_title": "ML Resident",
+      "date_range": "Jun 2023 - Dec 2023 \u00b7 7 mos",
+      "description": "1. Branches: Built a framework to visualize advanced reasoning and planning algorithms like Tree Search with LLMs. Worked on Tree-of-Thought + Reflexion style planning algorithms for objective problem solving.\n2. Verilog Code Gen: Explored LLMs for Verilog Code Generation, using prompting, contrained generation, execution feedback and reinforcement learning to solve the VerilogEval dataset.\u2026 more",
+      "employment_type": "Internship"
+    },
+    {
+      "company": "Meesho",
+      "location": "Bangalore + Hyderabad",
+      "job_title": "Data Scientist - 2",
+      "date_range": "Nov 2021 - Aug 2022 \u00b7 10 mos",
+      "description": "I primarily worked on ML Automation of Taxonomy Tagging at Scale. I wore many hats like Data Scientist and Machine Learning Engineer.\n1. Developed and Deployed over 250+ image models for various attributes like sleeve_length, pattern, etc for over 35 product categories\n2. Color quantization models using Vision Transformers and K-Means Clustering\n3. A baseline brute force continual learning framework for periodic retraining of models.\n4. Model tracking and experimentation using neptune.ai\n5. Deployment of batch-mode inference using Pyspark + EMR + Airflow\n6. Python project development using nbdev.fast.ai\n\nApart from technical work, I proactively:\n1. Hosted a weekly research & talks forum\n2. Mentored juniors and interns\n3. Wrote blog posts\n4. Gave work demos and presented in org-wide forums\u2026 more",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "International Institute of Information Technology",
+      "location": "Hyderabad, India \u00b7 Remote",
+      "job_title": "Research Assistant",
+      "date_range": "Sep 2020 - Sep 2021 \u00b7 1 yr 1 mo",
+      "description": "A Research Intern with the \"Vision for Mobility\" Group under CVIT in IIIT-H. Did some research on:\n1. Occluded Object Detection of Traffic Signs.\n2. Missing object detection\u2026 more",
+      "employment_type": "Full-time"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "honors_awards": [],
+  "certifications": [],
+  "followers_count": 892,
+  "connections_count": 500,
+  "volunteer_experience": [
+    {
+      "role": "Team Leader",
+      "cause": "",
+      "location": "",
+      "date_range": "Aug 2013 \u2013 Feb 2015",
+      "description": "",
+      "organization": "AIESEC"
+    }
+  ],
+  "additional_sections_text": "Pronouns: He/Him\nProfile relationship: 3rd-degree connection\nCurrent company shown near top: Ramp\nCurrent school shown near top: New York University\nCauses: Human Rights \u2022 Science and Technology\nInterests (examples shown):\n- Ananth Narayanan \u2013 Founder at Brnd.me (formerly Mensa Brands)\n- Anima Anandkumar \u2013 AI+Science Pioneer, Professor at Caltech, etc.\nOrganizations of interest / companies followed (examples from \u201cYou might like\u201d / pages):\n- Pakistan Hiring \u2013 Research Services\n- HEC Pakistan \u2013 Higher Education",
+  "url": "https://www.linkedin.com/in/arun-patro-2085a984/",
+  "scraped_at": "2026-03-28T20:21:18.264009+00:00",
+  "source": "regular",
+  "current_company": "Ramp"
+}

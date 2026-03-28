@@ -1,9 +1,9 @@
 {
   "pakistan_side": {
     "status": "online",
-    "last_heartbeat": "2026-03-28T20:20:04.251649+00:00",
-    "profiles_scraped_total": 1,
-    "last_scrape": "2026-03-28T20:04:22.020575+00:00",
+    "last_heartbeat": "2026-03-28T20:35:56.131623+00:00",
+    "profiles_scraped_total": 20,
+    "last_scrape": "2026-03-28T20:35:56.131623+00:00",
     "errors": []
   },
   "usa_side": {

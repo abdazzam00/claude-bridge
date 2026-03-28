@@ -1,0 +1,117 @@
+{
+  "about": "Senior data platform engineer who builds infrastructure that actually works. Spent the last few years optimizing pipelines, migrating warehouses, and convincing ml models to behave in production. Particularly good at making real-time systems that don\u2019t collapse under load and explaining why vendor lock-in is a trap.",
+  "skills": [
+    {
+      "name": "Python",
+      "endorsement_count": ""
+    },
+    {
+      "name": "Apache Spark",
+      "endorsement_count": ""
+    }
+  ],
+  "headline": "Senior data engineer @ Hinge | real-time ml infrastructure",
+  "location": "New York, New York, United States",
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor of Science (B.S.)",
+      "school": "Northeastern University",
+      "date_range": "2019",
+      "description": "Programming, Java and +2 skills",
+      "field_of_study": "Computer Science and Mathematics",
+      "activities_and_societies": "- Survived university honors program & gave suspiciously upbeat tours to confused high schoolers (husky ambassador).\n- Hackathon enjoyer (hackbeanpot, huskyhacks); good at building \u201cminimum viable demo\u201d and even better at pretending it worked."
+    },
+    {
+      "degree": "High School Diploma",
+      "school": "AMSA Charter School",
+      "date_range": "2015",
+      "description": "Problem Solving, Time Management and +2 skills",
+      "field_of_study": "",
+      "activities_and_societies": "- Founded debate team, 2014 state champion (MSDL); led varsity math and peer-tutoring ops.\n- Swam competitively and feigned \u201cleadership\u201d on student council. If you were decent at math in MA, you probably knew me."
+    }
+  ],
+  "full_name": "\ud83d\udc68\ud83c\udffd\u200d\ud83d\udcbb Anirudh K.",
+  "languages": [],
+  "experience": [
+    {
+      "company": "Hinge",
+      "location": "New York \u00b7 On-site",
+      "job_title": "Senior Engineer",
+      "date_range": "2025 - 2026 \u00b7 1 yr",
+      "description": "Data, platform, ai.\n- Migrating legacy redshift warehouse to databricks, consolidating pipelines, cutting costs, unlocking ml workloads.\n- Giving ai engs the dopamine hit of \"fresh\" model features instead of \"whenever batch god wills it\".",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Ramp",
+      "location": "New York \u00b7 On-site",
+      "job_title": "Software Engineer",
+      "date_range": "2024 - 2025 \u00b7 1 yr",
+      "description": "Data platform.\n- Enabled growth engs to launch personalized flows; cut event latency 95%+ so ops could react while users were still awake.\n- Ported 100+ key dbt models to new cloud-native ELT, slashed incident downtime from 7d to 8h; established multi-vendor patterns (bc vendor lock-in sucks).",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Standard AI",
+      "location": "San Francisco \u00b7 Remote",
+      "job_title": "Lead Data Engineer",
+      "date_range": "2022 - 2024 \u00b7 2 yrs",
+      "description": "Data science & analytics.\n- First data engineering hire; stood up full-stack data infra (spark, delta lake, airflow, looker); putting infra on actual rails; feedback loop in hours not days.\n- Reduced deploy time 95%, dropped incident count, wrote rfcs, ran 1:1s, did perf reviews, technical leadership.",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Apple",
+      "location": "Cupertino, CA \u00b7 On-site",
+      "job_title": "Software Engineer",
+      "date_range": "2020 - 2022 \u00b7 2 yrs",
+      "description": "Health data platform.\n- Implemented real-time flink on kinesis ingestion, 50x latency improvement.\n- Orchestrated ml deploy + inference (docker, lambda, 200 req/s); cold starts be damned, the models shipped.",
+      "employment_type": "Full-time"
+    },
+    {
+      "company": "Google",
+      "location": "Cambridge, MA",
+      "job_title": "Software Engineer Intern",
+      "date_range": "Mar 2019 - Jun 2019 \u00b7 4 mos",
+      "description": "Cloud network infrastructure.\n- Implemented rollout prioritization for config updates on backbone (b2) routers, keeping the internet stable even when engineering wanted to move fast with global changes.",
+      "employment_type": "Internship"
+    }
+  ],
+  "contact_info": {
+    "email": "",
+    "phone": "",
+    "address": "",
+    "twitter": "",
+    "website": ""
+  },
+  "publications": [],
+  "certifications": [],
+  "followers_count": "1,187 followers",
+  "connections_count": "500+",
+  "honors_and_awards": [],
+  "additional_sections": [
+    {
+      "content": "they/he",
+      "section_title": "Pronouns"
+    },
+    {
+      "content": "Recent posts and reposts include commentary on:\n- Security for AI agents in production and support for Polymorph (YC W26).\n- New York City economic fundamentals and housing affordability.\n- TiE Young Entrepreneurs (TYE Boston) high school entrepreneurship program.\n- Reflections on a Chicago tech trek organized by Atlas Digital Consulting Group.\n- Endorsement of Vikram Kaushik for new grad SWE roles and his events with Figma and MongoDB internships.\n- Personal feature in Business Insider about bicoastal living between NYC and SF.\n- Ramp San Francisco office opening and Ramp\u2019s Series D-2 funding round and AI tools.\n\n(Only high-level themes captured; individual reaction/comment counts are visible per post.)",
+      "section_title": "Activity (excerpt)"
+    },
+    {
+      "content": "Companies followed (visible subset):\n- Autonodyne LLC\n- WONDER LAB",
+      "section_title": "Interests (excerpt)"
+    },
+    {
+      "content": "Examples of suggested profiles:\n- Christopher Wong \u2013 Platform Engineering @ Hinge | ex Apple, Rivian, Tesla\n- Andrew \ud83d\ude24 Cham \u2013 Engineering @ Hinge\n- Smitha P. \u2013 Data Scientist, Growth @ Hinge\n- Sufei Z. \u2013 Engineering Manager at Hinge\n- Kavya Dagli \u2013 Software Engineer",
+      "section_title": "Interests \u2013 People You May Know (Hinge-related suggestions)"
+    },
+    {
+      "content": "1,187 followers (as shown in Activity section header).",
+      "section_title": "Followers metadata"
+    }
+  ],
+  "volunteer_experience": [],
+  "url": "https://www.linkedin.com/in/anirudh-k/",
+  "scraped_at": "2026-03-28T20:28:55.472042+00:00",
+  "source": "regular",
+  "current_company": "Hinge"
+}
