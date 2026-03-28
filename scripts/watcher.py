@@ -198,16 +198,42 @@ Return ONLY a JSON array, no other text.''',
 
                         if result.data and result.data.final_result:
                             raw = result.data.final_result
-                            # Fix common JSON issues from agent output
-                            raw_clean = raw.replace("'", '"').replace('\n', ' ')
+                            print(f"[DEBUG] Agent raw output for '{comp}': {raw[:500]}")
+                            # Try multiple JSON parsing strategies
+                            comp_leads = None
+                            # Strategy 1: find JSON array
+                            raw_clean = raw.replace('\n', ' ')
                             start = raw_clean.find('[')
                             end = raw_clean.rfind(']') + 1
                             if start >= 0 and end > start:
-                                try:
-                                    comp_leads = _json.loads(raw_clean[start:end])
-                                except _json.JSONDecodeError:
-                                    # Try original
-                                    comp_leads = _json.loads(raw[raw.find('['):raw.rfind(']')+1])
+                                for attempt_str in [raw_clean[start:end], raw_clean[start:end].replace("'", '"')]:
+                                    try:
+                                        comp_leads = _json.loads(attempt_str)
+                                        break
+                                    except _json.JSONDecodeError:
+                                        pass
+                            # Strategy 2: find JSON object with results array
+                            if not comp_leads:
+                                obj_start = raw_clean.find('{')
+                                obj_end = raw_clean.rfind('}') + 1
+                                if obj_start >= 0 and obj_end > obj_start:
+                                    try:
+                                        obj = _json.loads(raw_clean[obj_start:obj_end])
+                                        comp_leads = obj.get('results', obj.get('leads', obj.get('people', [])))
+                                    except _json.JSONDecodeError:
+                                        pass
+                            # Strategy 3: parse text lines as leads
+                            if not comp_leads:
+                                comp_leads = []
+                                lines = raw.split('\n')
+                                for line in lines:
+                                    line = line.strip()
+                                    if 'linkedin.com/in/' in line:
+                                        import re as _re
+                                        url_match = _re.search(r'https?://(?:www\.)?linkedin\.com/in/[^\s\)\"]+', line)
+                                        if url_match:
+                                            comp_leads.append({'linkedin_url': url_match.group(), 'name': line[:50]})
+                            if comp_leads:
                                 # Normalize field names
                                 for lead in comp_leads:
                                     if 'linkedin_profile_url' in lead and 'linkedin_url' not in lead:
