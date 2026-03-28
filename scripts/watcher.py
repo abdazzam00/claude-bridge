@@ -209,19 +209,30 @@ Look for search result cards/items on the page. Return up to {max_results} resul
                 leads = result.data.get("results", []) if result.data else []
                 print(f"[+] Found {len(leads)} leads for search #{req_id}")
 
-                # Save leads to profiles table by scraping each one
+                # Only scrape NEW profiles — skip ones already in DB
+                new_leads = []
                 for lead in leads[:max_results]:
                     url = lead.get("linkedin_url", "")
                     if url and "linkedin.com" in url:
-                        try:
-                            profile = scrape_linkedin_profile(url)
-                            save_to_neon(profile)
-                            scraped += 1
-                            time.sleep(random.uniform(5, 12))
-                        except Exception as e:
-                            print(f"[!] Error scraping lead {lead.get('name')}: {e}")
+                        cur.execute("SELECT id FROM profiles WHERE url = %s", (url,))
+                        if cur.fetchone() is None:
+                            new_leads.append(lead)
+                        else:
+                            print(f"[*] Skip (already in DB): {lead.get('name', '?')}")
 
-                # Also save raw search results
+                print(f"[*] {len(new_leads)} new profiles to scrape (skipped {len(leads) - len(new_leads)} existing)")
+
+                for lead in new_leads:
+                    url = lead.get("linkedin_url", "")
+                    try:
+                        profile = scrape_linkedin_profile(url)
+                        save_to_neon(profile)
+                        scraped += 1
+                        time.sleep(random.uniform(5, 12))
+                    except Exception as e:
+                        print(f"[!] Error scraping {lead.get('name')}: {e}")
+
+                # Save raw search results (always, for tracking)
                 cur.execute("CREATE TABLE IF NOT EXISTS search_results (id SERIAL PRIMARY KEY, query TEXT, name TEXT, headline TEXT, company TEXT, location TEXT, linkedin_url TEXT, searched_at TIMESTAMPTZ DEFAULT NOW())")
                 for lead in leads:
                     cur.execute(
