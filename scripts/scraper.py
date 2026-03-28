@@ -1,5 +1,5 @@
 """
-Pakistan-side scraper: picks up profile requests from GitHub, scrapes via Hyperbrowser,
+Pakistan-side scraper: picks up profile requests from GitHub, scrapes via Hyperbrowser + Playwright,
 writes results back to GitHub and Neon DB.
 """
 import os
@@ -11,7 +11,8 @@ import subprocess
 from datetime import datetime, timezone
 
 from hyperbrowser import Hyperbrowser
-from hyperbrowser.models.scrape import StartScrapeJobParams, ScrapeOptions
+from hyperbrowser.models.session import CreateSessionParams
+from playwright.sync_api import sync_playwright
 
 # --- Config ---
 HB_API_KEY = os.environ.get("HB_API_KEY", "hb_c954e7f6d25b0107fefcee51319b")
@@ -23,41 +24,75 @@ RESULTS_DIR = os.path.join(BRIDGE_DIR, "results")
 
 
 def scrape_linkedin_profile(url: str) -> dict:
-    """Scrape a LinkedIn profile using Hyperbrowser's scrape API."""
-    client = Hyperbrowser(api_key=HB_API_KEY)
+    """Scrape a LinkedIn profile using Hyperbrowser session + Playwright CDP with li_at cookie."""
+    hb = Hyperbrowser(api_key=HB_API_KEY)
+    session = None
 
-    print(f"[*] Scraping: {url}")
     try:
-        result = client.scrape.start_and_wait(
-            StartScrapeJobParams(
-                url=url,
-                scrape_options=ScrapeOptions(
-                    formats=["markdown"],
-                    only_main_content=True,
-                    wait_for=5000,
-                ),
-                session_options={
-                    "use_stealth": True,
-                    "solve_captchas": True,
-                    "accept_cookies": True,
-                },
+        print(f"[*] Creating Hyperbrowser session...")
+        session = hb.sessions.create(
+            CreateSessionParams(
+                use_stealth=True,
+                solve_captchas=True,
+                accept_cookies=True,
             )
         )
+        print(f"[+] Session created: {session.id}")
+        ws_endpoint = session.ws_endpoint
 
-        raw_text = result.data.markdown if result.data else ""
-        if not raw_text:
-            return {"error": "No content returned", "url": url}
+        with sync_playwright() as pw:
+            print(f"[*] Connecting Playwright via CDP...")
+            browser = pw.chromium.connect_over_cdp(ws_endpoint)
+            context = browser.contexts[0] if browser.contexts else browser.new_context()
 
-        profile = parse_profile(raw_text, url)
-        return profile
+            # Inject li_at cookie for LinkedIn auth
+            context.add_cookies([{
+                "name": "li_at",
+                "value": LI_AT_COOKIE,
+                "domain": ".linkedin.com",
+                "path": "/",
+                "httpOnly": True,
+                "secure": True,
+                "sameSite": "None",
+            }])
+
+            page = context.pages[0] if context.pages else context.new_page()
+
+            print(f"[*] Navigating to: {url}")
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+
+            # Wait for JS to render
+            print("[*] Waiting for page to render...")
+            page.wait_for_timeout(5000)
+
+            # Extract page text
+            raw_text = page.evaluate("document.body.innerText")
+
+            if not raw_text or "Sign in" in raw_text[:200]:
+                # Try waiting longer
+                print("[*] Page may not be loaded, waiting more...")
+                page.wait_for_timeout(5000)
+                raw_text = page.evaluate("document.body.innerText")
+
+            profile = parse_profile(raw_text, url)
+            print(f"[+] Scraped: {profile.get('name', 'unknown')}")
+            return profile
 
     except Exception as e:
         print(f"[!] Scrape error: {e}")
-        return {"error": str(e), "url": url}
+        return {"error": str(e), "url": url, "scraped_at": datetime.now(timezone.utc).isoformat()}
+
+    finally:
+        if session:
+            try:
+                hb.sessions.stop(session.id)
+                print(f"[+] Session stopped: {session.id}")
+            except Exception:
+                pass
 
 
 def parse_profile(text: str, url: str) -> dict:
-    """Parse raw LinkedIn text into structured profile data."""
+    """Parse raw LinkedIn page text into structured profile data."""
     lines = [l.strip() for l in text.split("\n") if l.strip()]
 
     profile = {
@@ -72,35 +107,56 @@ def parse_profile(text: str, url: str) -> dict:
         "experience": [],
         "education": [],
         "skills": [],
+        "connections": "",
     }
 
-    # Try to extract name (usually first meaningful line)
-    for line in lines[:5]:
-        cleaned = line.strip("#").strip()
-        if cleaned and len(cleaned) < 100 and not cleaned.startswith("http"):
-            profile["name"] = cleaned
+    # Name is usually the first non-navigation line
+    skip_prefixes = ("skip", "linkedin", "home", "my network", "jobs", "messaging", "notifications", "search")
+    for line in lines:
+        lower = line.lower()
+        if any(lower.startswith(p) for p in skip_prefixes):
+            continue
+        if len(line) < 60 and not line.startswith("http"):
+            profile["name"] = line
             break
 
-    # Extract sections by scanning for headers
+    # Find headline (line after name, before location-like text)
+    name_idx = -1
+    for i, line in enumerate(lines):
+        if line == profile["name"]:
+            name_idx = i
+            break
+
+    if name_idx >= 0 and name_idx + 1 < len(lines):
+        profile["headline"] = lines[name_idx + 1]
+    if name_idx >= 0 and name_idx + 2 < len(lines):
+        candidate = lines[name_idx + 2]
+        if any(geo in candidate.lower() for geo in ["united states", "india", "uk", "canada", "area", "city", "new york", "san francisco", "london", "mumbai", "bangalore"]):
+            profile["location"] = candidate
+
+    # Extract sections
     current_section = ""
     section_lines = []
+    section_keywords = {"experience", "education", "skills", "about", "licenses & certifications", "certifications"}
 
     for line in lines:
-        lower = line.lower().strip("#").strip()
-        if lower in ("experience", "education", "skills", "about", "activity"):
+        lower = line.lower().strip()
+        if lower in section_keywords:
             if current_section and section_lines:
                 _assign_section(profile, current_section, section_lines)
             current_section = lower
             section_lines = []
-        else:
+        elif current_section:
             section_lines.append(line)
 
     if current_section and section_lines:
         _assign_section(profile, current_section, section_lines)
 
-    # Headline is often the second meaningful line
-    if len(lines) > 1:
-        profile["headline"] = lines[1].strip("#").strip()
+    # Connections
+    for line in lines:
+        if "connection" in line.lower() or "follower" in line.lower():
+            profile["connections"] = line
+            break
 
     return profile
 
@@ -116,8 +172,8 @@ def _assign_section(profile: dict, section: str, lines: list):
             profile["current_company"] = profile["experience"][0].get("company", "")
     elif section == "education":
         profile["education"] = _parse_entries(lines)
-    elif section == "skills":
-        profile["skills"] = [l.strip("- •·").strip() for l in lines if l.strip("- •·").strip()]
+    elif section in ("skills", "licenses & certifications", "certifications"):
+        profile["skills"] = [l.strip("- •·").strip() for l in lines if l.strip("- •·").strip() and len(l) < 100][:20]
 
 
 def _parse_entries(lines: list) -> list:
@@ -125,23 +181,27 @@ def _parse_entries(lines: list) -> list:
     entries = []
     current = {}
     for line in lines:
-        cleaned = line.strip("- •·#").strip()
-        if not cleaned:
+        cleaned = line.strip("- •·").strip()
+        if not cleaned or cleaned.startswith("http") or cleaned.startswith("Show "):
             continue
-        if cleaned.startswith("![") or cleaned.startswith("http"):
-            continue
-        # New entry heuristic: short line that's likely a title/company
-        if len(cleaned) < 80 and not any(c in cleaned for c in ["·", "•", "yr", "mo"]):
-            if current:
-                entries.append(current)
-            current = {"title": cleaned}
-        elif current:
-            if "company" not in current:
-                current["company"] = cleaned
-            elif "dates" not in current:
-                current["dates"] = cleaned
+        # Date patterns indicate we're in an entry's detail
+        has_date = any(month in cleaned for month in ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]) or "Present" in cleaned
+        if has_date and current:
+            current["dates"] = cleaned
+        elif len(cleaned) < 80 and not has_date:
+            if current and "title" in current:
+                if "company" not in current:
+                    current["company"] = cleaned
+                else:
+                    entries.append(current)
+                    current = {"title": cleaned}
             else:
-                current["description"] = current.get("description", "") + " " + cleaned
+                if current:
+                    entries.append(current)
+                current = {"title": cleaned}
+        elif current:
+            current["description"] = current.get("description", "") + " " + cleaned
+
     if current:
         entries.append(current)
     return entries[:10]
@@ -226,7 +286,6 @@ def process_requests():
         fname = os.path.basename(req_file)
         result_file = os.path.join(RESULTS_DIR, fname)
 
-        # Skip already processed
         if os.path.exists(result_file):
             continue
 
@@ -249,15 +308,13 @@ def process_requests():
 
         print(f"[+] Result written: {result_file}")
         processed += 1
-
-        # Rate limit between profiles
         time.sleep(5)
 
     return processed
 
 
 def git_sync():
-    """Pull latest requests, push results."""
+    """Pull latest requests."""
     try:
         subprocess.run(["git", "pull", "--rebase"], cwd=BRIDGE_DIR, capture_output=True, timeout=30)
     except Exception:
@@ -305,7 +362,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--watch":
         run_watcher()
     elif len(sys.argv) > 1 and sys.argv[1] == "--url":
-        # Direct scrape mode
         url = sys.argv[2] if len(sys.argv) > 2 else "https://www.linkedin.com/in/atharva-kasar/"
         profile = scrape_linkedin_profile(url)
         save_to_neon(profile)
