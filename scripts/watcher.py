@@ -147,24 +147,6 @@ def poll_bridge_search_requests():
             conn.commit()
 
             try:
-                # Build search query — deduplicate job_title vs keywords
-                search_parts = []
-                if job_title:
-                    search_parts.append(job_title)
-                if keywords and keywords != job_title:
-                    search_parts.append(keywords)
-                if location:
-                    search_parts.append(location)
-
-                # Add companies if provided
-                if companies:
-                    comp_list = companies if isinstance(companies, list) else []
-                    if comp_list:
-                        search_parts.append(" ".join(comp_list[:3]))
-
-                search_query = " ".join(search_parts)
-                print(f"[*] Bridge search #{req_id}: '{search_query}'")
-
                 from hyperbrowser import Hyperbrowser
                 from hyperbrowser.models.extract import StartExtractJobParams
                 from hyperbrowser.models.session import CreateSessionParams, CreateSessionProfile
@@ -173,15 +155,37 @@ def poll_bridge_search_requests():
 
                 hb = Hyperbrowser(api_key=HB_API_KEY)
 
-                # Use regular LinkedIn people search (more reliable than Sales Nav URL)
-                encoded_q = quote(search_query)
-                search_url = f"https://www.linkedin.com/search/results/people/?keywords={encoded_q}&origin=GLOBAL_SEARCH_HEADER"
+                # Strategy: search per company for targeted results
+                comp_list = companies if isinstance(companies, list) else []
+                if not comp_list:
+                    # No companies — just search by title + location
+                    comp_list = [""]
 
-                result = hb.extract.start_and_wait(StartExtractJobParams(
-                    urls=[search_url],
-                    prompt=f"""Extract all people search results from this LinkedIn search page.
-For each person found, extract: full name, headline/job title, current company, location, and their LinkedIn profile URL (format: https://www.linkedin.com/in/username).
-Return up to {max_results} results. Only include real people results, not ads or suggestions.""",
+                all_leads = []
+                leads_per_company = max(3, max_results // max(len(comp_list), 1))
+
+                for comp in comp_list[:10]:  # Cap at 10 companies per request
+                    # Build clean search query
+                    q_parts = []
+                    if job_title:
+                        q_parts.append(f'"{job_title}"')
+                    if comp:
+                        q_parts.append(comp)
+                    if location:
+                        q_parts.append(location)
+                    search_query = " ".join(q_parts)
+
+                    print(f"[*] Search #{req_id}: '{search_query}'")
+
+                    encoded_q = quote(search_query)
+                    search_url = f"https://www.linkedin.com/search/results/people/?keywords={encoded_q}&origin=GLOBAL_SEARCH_HEADER"
+
+                    try:
+                        result = hb.extract.start_and_wait(StartExtractJobParams(
+                            urls=[search_url],
+                            prompt=f"""Extract all people search results from this LinkedIn search page.
+For each person, extract: full name, headline/job title, current company, location, and LinkedIn profile URL (https://www.linkedin.com/in/username).
+Return up to {leads_per_company} results. Only real people, not ads.""",
                     schema_={
                         "type": "object",
                         "properties": {
@@ -210,33 +214,38 @@ Return up to {max_results} results. Only include real people results, not ads or
                     wait_for=5000,
                 ))
 
-                leads = result.data.get("results", []) if result.data else []
-                print(f"[+] Found {len(leads)} leads for search #{req_id}")
+                        comp_leads = result.data.get("results", []) if result.data else []
+                        print(f"[+] {comp or 'general'}: {len(comp_leads)} leads")
+                        all_leads.extend(comp_leads)
+                    except Exception as e:
+                        print(f"[!] Search error for '{comp}': {e}")
+
+                    time.sleep(random.uniform(3, 6))
+
+                leads = all_leads
+                print(f"[+] Total leads for #{req_id}: {len(leads)}")
 
                 # Only scrape NEW profiles — skip ones already in DB
                 new_leads = []
-                for lead in leads[:max_results]:
+                seen_urls = set()
+                for lead in leads:
                     url = lead.get("linkedin_url", "")
-                    if url and "linkedin.com" in url:
-                        cur.execute("SELECT id FROM profiles WHERE url = %s", (url,))
-                        if cur.fetchone() is None:
-                            new_leads.append(lead)
-                        else:
-                            print(f"[*] Skip (already in DB): {lead.get('name', '?')}")
+                    if not url or "linkedin.com" not in url or url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+                    cur.execute("SELECT id FROM profiles WHERE url = %s", (url,))
+                    if cur.fetchone() is None:
+                        new_leads.append(lead)
+                    else:
+                        print(f"[*] Skip (in DB): {lead.get('name', '?')}")
 
-                print(f"[*] {len(new_leads)} new profiles to scrape (skipped {len(leads) - len(new_leads)} existing)")
+                print(f"[*] {len(new_leads)} new, {len(seen_urls) - len(new_leads)} existing")
 
-                for lead in new_leads:
+                for lead in new_leads[:max_results]:
                     url = lead.get("linkedin_url", "")
                     try:
                         profile = scrape_linkedin_profile(url)
-                        # Tag profile with the request it came from
-                        profile["sourced_from_request_id"] = req_id
-                        profile["sourced_role"] = role or job_title or ""
-                        profile["sourced_company"] = req_company or ""
-                        profile["sourced_pipeline_run_id"] = pipeline_run_id or ""
                         save_to_neon(profile)
-                        # Also update the profiles row with sourcing labels
                         cur.execute("""
                             UPDATE profiles SET
                                 sourced_from_request_id = %s,
@@ -251,12 +260,12 @@ Return up to {max_results} results. Only include real people results, not ads or
                     except Exception as e:
                         print(f"[!] Error scraping {lead.get('name')}: {e}")
 
-                # Save raw search results (always, for tracking)
+                # Save raw search results for tracking
                 cur.execute("CREATE TABLE IF NOT EXISTS search_results (id SERIAL PRIMARY KEY, query TEXT, name TEXT, headline TEXT, company TEXT, location TEXT, linkedin_url TEXT, searched_at TIMESTAMPTZ DEFAULT NOW())")
                 for lead in leads:
                     cur.execute(
                         "INSERT INTO search_results (query, name, headline, company, location, linkedin_url) VALUES (%s,%s,%s,%s,%s,%s)",
-                        (search_query, lead.get("name",""), lead.get("headline",""), lead.get("company",""), lead.get("location",""), lead.get("linkedin_url",""))
+                        (job_title or "", lead.get("name",""), lead.get("headline",""), lead.get("company",""), lead.get("location",""), lead.get("linkedin_url",""))
                     )
 
                 # Mark completed
