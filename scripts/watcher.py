@@ -7,6 +7,7 @@ import sys
 import json
 import time
 import re
+import random
 import subprocess
 from datetime import datetime, timezone
 
@@ -116,13 +117,146 @@ def handle_messages(unread):
     return scraped
 
 
+def poll_bridge_search_requests():
+    """Poll Neon DB for pending search requests from Vercel/USA side."""
+    if not NEON_CONN:
+        return 0
+    scraped = 0
+    try:
+        import psycopg2
+        conn = psycopg2.connect(NEON_CONN)
+        cur = conn.cursor()
+
+        # Get pending requests
+        cur.execute("SELECT id, job_title, companies, location, keywords, max_results FROM bridge_search_requests WHERE status = 'pending' ORDER BY requested_at LIMIT 5")
+        rows = cur.fetchall()
+
+        if not rows:
+            cur.close()
+            conn.close()
+            return 0
+
+        print(f"[*] {len(rows)} pending bridge search request(s)")
+
+        for row in rows:
+            req_id, job_title, companies, location, keywords, max_results = row
+            max_results = max_results or 10
+
+            # Mark as processing
+            cur.execute("UPDATE bridge_search_requests SET status = 'processing' WHERE id = %s", (req_id,))
+            conn.commit()
+
+            try:
+                # Build search query for LinkedIn Sales Navigator
+                search_parts = []
+                if job_title:
+                    search_parts.append(job_title)
+                if keywords:
+                    search_parts.append(keywords)
+                if location:
+                    search_parts.append(location)
+
+                search_query = " ".join(search_parts)
+                print(f"[*] Bridge search #{req_id}: '{search_query}'")
+
+                # Use Hyperbrowser Extract to search LinkedIn
+                from hyperbrowser import Hyperbrowser
+                from hyperbrowser.models.extract import StartExtractJobParams
+                from hyperbrowser.models.session import CreateSessionParams, CreateSessionProfile
+                from scraper import HB_API_KEY, HB_PROFILE_ID
+                from urllib.parse import quote
+
+                hb = Hyperbrowser(api_key=HB_API_KEY)
+
+                # Build Sales Nav search URL
+                sn_keywords = quote(search_query)
+                search_url = f"https://www.linkedin.com/sales/search/people?query=(keywords:{sn_keywords},spellCorrectionEnabled:true)"
+
+                # Extract search results
+                result = hb.extract.start_and_wait(StartExtractJobParams(
+                    urls=[search_url],
+                    prompt=f"""Extract all people/lead results from this LinkedIn Sales Navigator search page.
+For each person found, extract: full name, headline/job title, current company, location, LinkedIn profile URL.
+Look for search result cards/items on the page. Return up to {max_results} results.""",
+                    schema_={
+                        "type": "object",
+                        "properties": {
+                            "results": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {"type": "string"},
+                                        "headline": {"type": "string"},
+                                        "company": {"type": "string"},
+                                        "location": {"type": "string"},
+                                        "linkedin_url": {"type": "string"},
+                                    }
+                                }
+                            },
+                            "total_results": {"type": "integer"},
+                        }
+                    },
+                    session_options=CreateSessionParams(
+                        use_stealth=True,
+                        solve_captchas=True,
+                        accept_cookies=True,
+                        profile=CreateSessionProfile(id=HB_PROFILE_ID),
+                    ),
+                    wait_for=5000,
+                ))
+
+                leads = result.data.get("results", []) if result.data else []
+                print(f"[+] Found {len(leads)} leads for search #{req_id}")
+
+                # Save leads to profiles table by scraping each one
+                for lead in leads[:max_results]:
+                    url = lead.get("linkedin_url", "")
+                    if url and "linkedin.com" in url:
+                        try:
+                            profile = scrape_linkedin_profile(url)
+                            save_to_neon(profile)
+                            scraped += 1
+                            time.sleep(random.uniform(5, 12))
+                        except Exception as e:
+                            print(f"[!] Error scraping lead {lead.get('name')}: {e}")
+
+                # Also save raw search results
+                cur.execute("CREATE TABLE IF NOT EXISTS search_results (id SERIAL PRIMARY KEY, query TEXT, name TEXT, headline TEXT, company TEXT, location TEXT, linkedin_url TEXT, searched_at TIMESTAMPTZ DEFAULT NOW())")
+                for lead in leads:
+                    cur.execute(
+                        "INSERT INTO search_results (query, name, headline, company, location, linkedin_url) VALUES (%s,%s,%s,%s,%s,%s)",
+                        (search_query, lead.get("name",""), lead.get("headline",""), lead.get("company",""), lead.get("location",""), lead.get("linkedin_url",""))
+                    )
+
+                # Mark completed
+                cur.execute("UPDATE bridge_search_requests SET status = 'completed', completed_at = NOW(), result_count = %s WHERE id = %s", (len(leads), req_id))
+                conn.commit()
+                print(f"[+] Search #{req_id} done: {len(leads)} leads, {scraped} scraped")
+
+            except Exception as e:
+                print(f"[!] Search #{req_id} error: {e}")
+                cur.execute("UPDATE bridge_search_requests SET status = 'error', error = %s WHERE id = %s", (str(e)[:500], req_id))
+                conn.commit()
+
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f"[!] Bridge poll error: {e}")
+    return scraped
+
+
 def run_cycle():
     print(f"\n[*] Cycle: {datetime.now(timezone.utc).strftime('%H:%M:%S')}")
     git_pull()
     count = process_requests()
     unread = check_chat()
     chat_scraped = handle_messages(unread) if unread else 0
-    total = count + chat_scraped
+
+    # Poll Neon DB for bridge search requests from Vercel
+    bridge_scraped = poll_bridge_search_requests()
+
+    total = count + chat_scraped + bridge_scraped
     update_status(profiles_scraped=total)
     if total > 0 or unread:
         git_push(f"auto: {total} scraped, {len(unread)} msgs")
