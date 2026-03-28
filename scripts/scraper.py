@@ -79,24 +79,16 @@ def warm_up_session(page):
     """
     print("[*] Warming up session (browsing feed first)...")
 
-    # Visit LinkedIn homepage/feed
-    page.goto("https://www.linkedin.com/feed/", wait_until="domcontentloaded", timeout=30000)
-    human_delay(3, 6)
-    human_scroll(page)
-    human_mouse_move(page)
-    human_delay(2, 4)
-
-    # Maybe visit notifications or messaging (random)
-    warmup_pages = [
-        "https://www.linkedin.com/mynetwork/",
-        "https://www.linkedin.com/notifications/",
-    ]
-    if random.random() > 0.5:
-        pick = random.choice(warmup_pages)
-        print(f"[*] Warm-up visit: {pick}")
-        page.goto(pick, wait_until="domcontentloaded", timeout=20000)
-        human_delay(2, 5)
-        human_scroll(page)
+    # Visit LinkedIn — use the base URL which is lighter than /feed/
+    try:
+        page.goto("https://www.linkedin.com/", wait_until="domcontentloaded", timeout=45000)
+        human_delay(2, 4)
+        human_mouse_move(page)
+        human_delay(1, 3)
+    except Exception:
+        # If homepage times out, just continue — cookie is already set
+        print("[*] Warm-up page slow, continuing anyway...")
+        human_delay(2, 3)
 
     print("[+] Warm-up done")
 
