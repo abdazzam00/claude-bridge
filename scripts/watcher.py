@@ -176,11 +176,17 @@ def poll_bridge_search_requests():
 
                     try:
                         result = hb.agents.browser_use.start_and_wait(StartBrowserUseTaskParams(
-                            task=f'''Go to LinkedIn. You are already logged in.
-Search for people using the search bar with query: {search_query}
-Click on the "People" tab. Extract the first {leads_per_company} people with:
-full name, headline, current company, location, LinkedIn profile URL (https://www.linkedin.com/in/username).
-Return as a JSON array.''',
+                            task=f'''Go to LinkedIn Sales Navigator at https://www.linkedin.com/sales/search/people
+You are already logged in with Sales Navigator access.
+Use the Sales Navigator lead search filters:
+- Enter "{job_title}" in the keywords or title filter
+- Set current company to "{comp}" if there is a company filter
+- Set geography/location to "{location}" if there is a geography filter
+- Click Search or apply the filters
+- Wait for results to load
+Extract the first {leads_per_company} lead results with:
+full name, headline/title, current company, location, and their LinkedIn profile URL (convert Sales Nav URLs to regular format: https://www.linkedin.com/in/username).
+Return ONLY a JSON array, no other text.''',
                             llm='gemini-2.5-flash',
                             max_steps=20,
                             keep_browser_open=False,
