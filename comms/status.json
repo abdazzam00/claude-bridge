@@ -1,0 +1,15 @@
+{
+  "pakistan_side": {
+    "status": "online",
+    "last_heartbeat": "",
+    "profiles_scraped_total": 0,
+    "last_scrape": "",
+    "errors": []
+  },
+  "usa_side": {
+    "status": "unknown",
+    "last_heartbeat": "",
+    "requests_sent_total": 0,
+    "last_request": ""
+  }
+}
