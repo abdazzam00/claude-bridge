@@ -7,6 +7,7 @@ import sys
 import json
 import time
 import glob
+import re
 import subprocess
 from datetime import datetime, timezone
 
@@ -61,20 +62,23 @@ def scrape_linkedin_profile(url: str) -> dict:
             print(f"[*] Navigating to: {url}")
             page.goto(url, wait_until="domcontentloaded", timeout=30000)
 
-            # Wait for JS to render
             print("[*] Waiting for page to render...")
-            page.wait_for_timeout(5000)
+            page.wait_for_timeout(6000)
 
-            # Extract page text
+            # Extract using DOM selectors for accuracy
+            profile = extract_profile_data(page, url)
+
+            # Fallback: also grab raw text
             raw_text = page.evaluate("document.body.innerText")
+            profile["raw_text"] = raw_text[:8000]
 
-            if not raw_text or "Sign in" in raw_text[:200]:
-                # Try waiting longer
-                print("[*] Page may not be loaded, waiting more...")
-                page.wait_for_timeout(5000)
-                raw_text = page.evaluate("document.body.innerText")
+            # If selectors missed stuff, fill from raw text
+            if not profile["name"] or not profile["experience"]:
+                fallback = parse_raw_text(raw_text, url)
+                for key in fallback:
+                    if key != "raw_text" and not profile.get(key):
+                        profile[key] = fallback[key]
 
-            profile = parse_profile(raw_text, url)
             print(f"[+] Scraped: {profile.get('name', 'unknown')}")
             return profile
 
@@ -91,13 +95,10 @@ def scrape_linkedin_profile(url: str) -> dict:
                 pass
 
 
-def parse_profile(text: str, url: str) -> dict:
-    """Parse raw LinkedIn page text into structured profile data."""
-    lines = [l.strip() for l in text.split("\n") if l.strip()]
-
+def extract_profile_data(page, url: str) -> dict:
+    """Extract profile data using Playwright DOM selectors."""
     profile = {
         "url": url,
-        "raw_text": text[:5000],
         "scraped_at": datetime.now(timezone.utc).isoformat(),
         "name": "",
         "headline": "",
@@ -107,104 +108,336 @@ def parse_profile(text: str, url: str) -> dict:
         "experience": [],
         "education": [],
         "skills": [],
+        "certifications": [],
+        "honors": [],
         "connections": "",
+        "followers": "",
+        "profile_photo": "",
+        "raw_text": "",
     }
 
-    # Name is usually the first non-navigation line
-    skip_prefixes = ("skip", "linkedin", "home", "my network", "jobs", "messaging", "notifications", "search")
-    for line in lines:
-        lower = line.lower()
-        if any(lower.startswith(p) for p in skip_prefixes):
-            continue
-        if len(line) < 60 and not line.startswith("http"):
-            profile["name"] = line
-            break
+    # Name - try multiple selectors
+    for sel in ["h1", ".text-heading-xlarge", "[data-anonymize='person-name']"]:
+        try:
+            el = page.query_selector(sel)
+            if el:
+                text = el.inner_text().strip()
+                if text and len(text) < 80 and text.lower() not in ("linkedin", ""):
+                    profile["name"] = text
+                    break
+        except Exception:
+            pass
 
-    # Find headline (line after name, before location-like text)
-    name_idx = -1
-    for i, line in enumerate(lines):
-        if line == profile["name"]:
-            name_idx = i
-            break
+    # Headline
+    for sel in [".text-body-medium.break-words", "[data-anonymize='headline']"]:
+        try:
+            el = page.query_selector(sel)
+            if el:
+                profile["headline"] = el.inner_text().strip()
+                break
+        except Exception:
+            pass
 
-    if name_idx >= 0 and name_idx + 1 < len(lines):
-        profile["headline"] = lines[name_idx + 1]
-    if name_idx >= 0 and name_idx + 2 < len(lines):
-        candidate = lines[name_idx + 2]
-        if any(geo in candidate.lower() for geo in ["united states", "india", "uk", "canada", "area", "city", "new york", "san francisco", "london", "mumbai", "bangalore"]):
-            profile["location"] = candidate
+    # Location
+    for sel in [".text-body-small.inline.t-black--light.break-words", "span.text-body-small"]:
+        try:
+            els = page.query_selector_all(sel)
+            for el in els:
+                text = el.inner_text().strip()
+                if any(geo in text.lower() for geo in ["united states", "india", "uk", "canada", "york", "francisco", "london", "area", "city", "state", ","]):
+                    profile["location"] = text
+                    break
+            if profile["location"]:
+                break
+        except Exception:
+            pass
 
-    # Extract sections
-    current_section = ""
-    section_lines = []
-    section_keywords = {"experience", "education", "skills", "about", "licenses & certifications", "certifications"}
+    # Profile photo
+    try:
+        img = page.query_selector("img.pv-top-card-profile-picture__image")
+        if img:
+            profile["profile_photo"] = img.get_attribute("src") or ""
+    except Exception:
+        pass
 
-    for line in lines:
-        lower = line.lower().strip()
-        if lower in section_keywords:
-            if current_section and section_lines:
-                _assign_section(profile, current_section, section_lines)
-            current_section = lower
-            section_lines = []
-        elif current_section:
-            section_lines.append(line)
+    # About section
+    try:
+        about_section = page.query_selector("#about")
+        if about_section:
+            about_parent = about_section.evaluate_handle("el => el.closest('section')")
+            if about_parent:
+                spans = about_parent.query_selector_all("span[aria-hidden='true']")
+                about_texts = [s.inner_text().strip() for s in spans if s.inner_text().strip()]
+                profile["about"] = "\n".join(about_texts)
+    except Exception:
+        pass
 
-    if current_section and section_lines:
-        _assign_section(profile, current_section, section_lines)
+    # Experience section
+    try:
+        exp_section = page.query_selector("#experience")
+        if exp_section:
+            section = exp_section.evaluate_handle("el => el.closest('section')")
+            if section:
+                items = section.query_selector_all("li.artdeco-list__item")
+                for item in items:
+                    entry = {}
+                    spans = item.query_selector_all("span[aria-hidden='true']")
+                    texts = [s.inner_text().strip() for s in spans if s.inner_text().strip()]
+                    if texts:
+                        entry["title"] = texts[0] if len(texts) > 0 else ""
+                        entry["company"] = texts[1] if len(texts) > 1 else ""
+                        entry["duration"] = texts[2] if len(texts) > 2 else ""
+                        entry["location"] = texts[3] if len(texts) > 3 else ""
+                        if len(texts) > 4:
+                            entry["description"] = " ".join(texts[4:])
+                        profile["experience"].append(entry)
+                if profile["experience"]:
+                    profile["current_company"] = profile["experience"][0].get("company", "")
+    except Exception:
+        pass
 
-    # Connections
-    for line in lines:
-        if "connection" in line.lower() or "follower" in line.lower():
-            profile["connections"] = line
-            break
+    # Education section
+    try:
+        edu_section = page.query_selector("#education")
+        if edu_section:
+            section = edu_section.evaluate_handle("el => el.closest('section')")
+            if section:
+                items = section.query_selector_all("li.artdeco-list__item")
+                for item in items:
+                    spans = item.query_selector_all("span[aria-hidden='true']")
+                    texts = [s.inner_text().strip() for s in spans if s.inner_text().strip()]
+                    entry = {}
+                    if texts:
+                        entry["school"] = texts[0] if len(texts) > 0 else ""
+                        entry["degree"] = texts[1] if len(texts) > 1 else ""
+                        entry["dates"] = texts[2] if len(texts) > 2 else ""
+                        if len(texts) > 3:
+                            entry["details"] = " ".join(texts[3:])
+                        profile["education"].append(entry)
+    except Exception:
+        pass
+
+    # Skills section
+    try:
+        skills_section = page.query_selector("#skills")
+        if skills_section:
+            section = skills_section.evaluate_handle("el => el.closest('section')")
+            if section:
+                items = section.query_selector_all("li.artdeco-list__item")
+                for item in items:
+                    spans = item.query_selector_all("span[aria-hidden='true']")
+                    for s in spans:
+                        text = s.inner_text().strip()
+                        if text and text.lower() not in ("show all", "endorsement", "endorsements") and "endorsement" not in text.lower() and len(text) < 80:
+                            profile["skills"].append(text)
+                            break
+    except Exception:
+        pass
+
+    # Honors & Awards
+    try:
+        honors_section = page.query_selector("#honors_and_awards")
+        if honors_section:
+            section = honors_section.evaluate_handle("el => el.closest('section')")
+            if section:
+                items = section.query_selector_all("li.artdeco-list__item")
+                for item in items:
+                    spans = item.query_selector_all("span[aria-hidden='true']")
+                    texts = [s.inner_text().strip() for s in spans if s.inner_text().strip()]
+                    if texts:
+                        profile["honors"].append({"title": texts[0], "details": " ".join(texts[1:])})
+    except Exception:
+        pass
+
+    # Certifications
+    try:
+        cert_section = page.query_selector("#licenses_and_certifications")
+        if cert_section:
+            section = cert_section.evaluate_handle("el => el.closest('section')")
+            if section:
+                items = section.query_selector_all("li.artdeco-list__item")
+                for item in items:
+                    spans = item.query_selector_all("span[aria-hidden='true']")
+                    texts = [s.inner_text().strip() for s in spans if s.inner_text().strip()]
+                    if texts:
+                        profile["certifications"].append({"name": texts[0], "issuer": texts[1] if len(texts) > 1 else ""})
+    except Exception:
+        pass
+
+    # Connections / Followers from raw text
+    try:
+        connection_el = page.query_selector("span.t-bold")
+        if connection_el:
+            text = connection_el.inner_text().strip()
+            if "500" in text or "connection" in text.lower():
+                profile["connections"] = text
+    except Exception:
+        pass
 
     return profile
 
 
-def _assign_section(profile: dict, section: str, lines: list):
-    """Assign parsed section data to profile dict."""
-    text = "\n".join(lines)
-    if section == "about":
-        profile["about"] = text[:2000]
-    elif section == "experience":
-        profile["experience"] = _parse_entries(lines)
+def parse_raw_text(text: str, url: str) -> dict:
+    """Fallback parser: extract from raw innerText when selectors fail."""
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
+    profile = {
+        "url": url,
+        "scraped_at": datetime.now(timezone.utc).isoformat(),
+        "name": "",
+        "headline": "",
+        "location": "",
+        "about": "",
+        "current_company": "",
+        "experience": [],
+        "education": [],
+        "skills": [],
+        "certifications": [],
+        "honors": [],
+        "connections": "",
+        "followers": "",
+    }
+
+    # Find the name — it appears after nav items, as "Firstname Lastname" or "Firstname L."
+    nav_items = {"home", "my network", "jobs", "messaging", "notifications", "me", "for business", "sales nav", "skip to main content"}
+    found_nav_end = False
+    for i, line in enumerate(lines):
+        lower = line.lower().strip()
+        if lower.isdigit():
+            continue
+        if lower in nav_items:
+            found_nav_end = True
+            continue
+        if found_nav_end and len(line) < 60 and not line.startswith("http"):
+            profile["name"] = line
+            # Next line is headline
+            if i + 1 < len(lines):
+                next_line = lines[i + 1]
+                if next_line.lower() not in nav_items and not next_line.startswith("Save") and not next_line.startswith("Message"):
+                    profile["headline"] = next_line
+            break
+
+    # Extract sections by known headers
+    section_map = {}
+    current_section = None
+    current_lines = []
+    section_headers = {"experience", "education", "skills", "about", "honors & awards", "licenses & certifications", "certifications", "activity", "interests", "more profiles for you", "people you may know", "you might like"}
+
+    for line in lines:
+        lower = line.lower().strip()
+        if lower in section_headers:
+            if current_section:
+                section_map[current_section] = current_lines
+            current_section = lower
+            current_lines = []
+        elif current_section:
+            # Stop at next section
+            if lower in section_headers:
+                section_map[current_section] = current_lines
+                current_section = lower
+                current_lines = []
+            else:
+                current_lines.append(line)
+
+    if current_section:
+        section_map[current_section] = current_lines
+
+    # Parse experience
+    if "experience" in section_map:
+        exp_lines = section_map["experience"]
+        i = 0
+        while i < len(exp_lines):
+            line = exp_lines[i]
+            if line.lower() in ("show all",) or line.startswith("http"):
+                i += 1
+                continue
+            # Check if next line has a date pattern
+            has_date_nearby = False
+            for j in range(i, min(i + 4, len(exp_lines))):
+                if re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}', exp_lines[j]) or "Present" in exp_lines[j]:
+                    has_date_nearby = True
+                    break
+
+            if has_date_nearby and len(line) < 80:
+                entry = {"title": line}
+                if i + 1 < len(exp_lines):
+                    entry["company"] = exp_lines[i + 1].replace(" · Internship", "").replace(" · Full-time", "").strip()
+                if i + 2 < len(exp_lines):
+                    entry["duration"] = exp_lines[i + 2]
+                if i + 3 < len(exp_lines):
+                    loc = exp_lines[i + 3]
+                    if any(c in loc for c in [",", "United States", "India", "Remote"]):
+                        entry["location"] = loc
+                        i += 4
+                    else:
+                        i += 3
+                else:
+                    i += 3
+                profile["experience"].append(entry)
+            else:
+                i += 1
+
         if profile["experience"]:
             profile["current_company"] = profile["experience"][0].get("company", "")
-    elif section == "education":
-        profile["education"] = _parse_entries(lines)
-    elif section in ("skills", "licenses & certifications", "certifications"):
-        profile["skills"] = [l.strip("- •·").strip() for l in lines if l.strip("- •·").strip() and len(l) < 100][:20]
 
-
-def _parse_entries(lines: list) -> list:
-    """Parse experience/education entries from lines."""
-    entries = []
-    current = {}
-    for line in lines:
-        cleaned = line.strip("- •·").strip()
-        if not cleaned or cleaned.startswith("http") or cleaned.startswith("Show "):
-            continue
-        # Date patterns indicate we're in an entry's detail
-        has_date = any(month in cleaned for month in ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]) or "Present" in cleaned
-        if has_date and current:
-            current["dates"] = cleaned
-        elif len(cleaned) < 80 and not has_date:
-            if current and "title" in current:
-                if "company" not in current:
-                    current["company"] = cleaned
+    # Parse education
+    if "education" in section_map:
+        edu_lines = section_map["education"]
+        i = 0
+        while i < len(edu_lines):
+            line = edu_lines[i]
+            if line.lower() in ("show all",):
+                i += 1
+                continue
+            if len(line) < 100 and not line.startswith("http"):
+                entry = {"school": line}
+                if i + 1 < len(edu_lines):
+                    entry["degree"] = edu_lines[i + 1]
+                if i + 2 < len(edu_lines) and re.search(r'\d{4}', edu_lines[i + 2]):
+                    entry["dates"] = edu_lines[i + 2]
+                    i += 3
                 else:
-                    entries.append(current)
-                    current = {"title": cleaned}
+                    i += 2
+                profile["education"].append(entry)
             else:
-                if current:
-                    entries.append(current)
-                current = {"title": cleaned}
-        elif current:
-            current["description"] = current.get("description", "") + " " + cleaned
+                i += 1
 
-    if current:
-        entries.append(current)
-    return entries[:10]
+    # Parse skills
+    if "skills" in section_map:
+        for line in section_map["skills"]:
+            clean = line.strip()
+            if clean and clean.lower() not in ("show all", "see all") and "endorsement" not in clean.lower() and len(clean) < 80:
+                profile["skills"].append(clean)
+
+    # Parse honors
+    if "honors & awards" in section_map:
+        honors_lines = section_map["honors & awards"]
+        i = 0
+        while i < len(honors_lines):
+            line = honors_lines[i]
+            if len(line) > 5 and line.lower() not in ("show all",):
+                honor = {"title": line}
+                if i + 1 < len(honors_lines):
+                    honor["date"] = honors_lines[i + 1]
+                profile["honors"].append(honor)
+                i += 2
+            else:
+                i += 1
+
+    # Location
+    for line in lines:
+        if any(geo in line for geo in ["United States", "India", "United Kingdom", "Canada", "Germany", "Australia"]):
+            if len(line) < 80 and "agree" not in line.lower():
+                profile["location"] = line
+                break
+
+    # Connections / Followers
+    for line in lines:
+        if "connections" in line.lower() and len(line) < 30:
+            profile["connections"] = line
+        if "followers" in line.lower() and len(line) < 30:
+            profile["followers"] = line
+
+    return profile
 
 
 def save_to_neon(profile: dict):
@@ -230,6 +463,10 @@ def save_to_neon(profile: dict):
                 experience JSONB,
                 education JSONB,
                 skills JSONB,
+                certifications JSONB DEFAULT '[]',
+                honors JSONB DEFAULT '[]',
+                connections TEXT DEFAULT '',
+                followers TEXT DEFAULT '',
                 raw_text TEXT,
                 scraped_at TIMESTAMPTZ DEFAULT NOW(),
                 updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -237,8 +474,8 @@ def save_to_neon(profile: dict):
         """)
 
         cur.execute("""
-            INSERT INTO profiles (url, name, headline, location, about, current_company, experience, education, skills, raw_text, scraped_at)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO profiles (url, name, headline, location, about, current_company, experience, education, skills, certifications, honors, connections, followers, raw_text, scraped_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (url) DO UPDATE SET
                 name = EXCLUDED.name,
                 headline = EXCLUDED.headline,
@@ -248,6 +485,10 @@ def save_to_neon(profile: dict):
                 experience = EXCLUDED.experience,
                 education = EXCLUDED.education,
                 skills = EXCLUDED.skills,
+                certifications = EXCLUDED.certifications,
+                honors = EXCLUDED.honors,
+                connections = EXCLUDED.connections,
+                followers = EXCLUDED.followers,
                 raw_text = EXCLUDED.raw_text,
                 scraped_at = EXCLUDED.scraped_at,
                 updated_at = NOW()
@@ -261,7 +502,11 @@ def save_to_neon(profile: dict):
             json.dumps(profile.get("experience", [])),
             json.dumps(profile.get("education", [])),
             json.dumps(profile.get("skills", [])),
-            profile.get("raw_text", "")[:5000],
+            json.dumps(profile.get("certifications", [])),
+            json.dumps(profile.get("honors", [])),
+            profile.get("connections", ""),
+            profile.get("followers", ""),
+            profile.get("raw_text", "")[:8000],
             profile.get("scraped_at"),
         ))
 
@@ -365,6 +610,6 @@ if __name__ == "__main__":
         url = sys.argv[2] if len(sys.argv) > 2 else "https://www.linkedin.com/in/atharva-kasar/"
         profile = scrape_linkedin_profile(url)
         save_to_neon(profile)
-        print(json.dumps(profile, indent=2))
+        print(json.dumps(profile, indent=2, default=str))
     else:
         run_once()
