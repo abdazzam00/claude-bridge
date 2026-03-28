@@ -21,6 +21,7 @@ CHAT_FILE = os.path.join(COMMS_DIR, "chat.jsonl")
 # Add scripts to path
 sys.path.insert(0, os.path.join(BRIDGE_DIR, "scripts"))
 from scraper import scrape_linkedin_profile, save_to_neon, process_requests
+from search import search_and_scrape
 
 NEON_CONN = os.environ.get("NEON_DATABASE_URL", "")
 
