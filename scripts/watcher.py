@@ -191,13 +191,17 @@ Return as a JSON array.''',
                         ))
 
                         if result.data and result.data.final_result:
-                            # Parse the agent's text output into structured data
                             raw = result.data.final_result
-                            # Find JSON array in the response
-                            start = raw.find('[')
-                            end = raw.rfind(']') + 1
+                            # Fix common JSON issues from agent output
+                            raw_clean = raw.replace("'", '"').replace('\n', ' ')
+                            start = raw_clean.find('[')
+                            end = raw_clean.rfind(']') + 1
                             if start >= 0 and end > start:
-                                comp_leads = _json.loads(raw[start:end])
+                                try:
+                                    comp_leads = _json.loads(raw_clean[start:end])
+                                except _json.JSONDecodeError:
+                                    # Try original
+                                    comp_leads = _json.loads(raw[raw.find('['):raw.rfind(']')+1])
                                 # Normalize field names
                                 for lead in comp_leads:
                                     if 'linkedin_profile_url' in lead and 'linkedin_url' not in lead:
@@ -219,6 +223,15 @@ Return as a JSON array.''',
 
                 leads = all_leads
                 print(f"[+] Total leads for #{req_id}: {len(leads)}")
+
+                # Reconnect to Neon (long searches can drop SSL)
+                try:
+                    cur.close()
+                    conn.close()
+                except Exception:
+                    pass
+                conn = psycopg2.connect(NEON_CONN)
+                cur = conn.cursor()
 
                 # Only scrape NEW profiles — skip ones already in DB
                 new_leads = []
@@ -255,13 +268,15 @@ Return as a JSON array.''',
                     except Exception as e:
                         print(f"[!] Error scraping {lead.get('name')}: {e}")
 
-                # Save raw search results for tracking
-                cur.execute("CREATE TABLE IF NOT EXISTS search_results (id SERIAL PRIMARY KEY, query TEXT, name TEXT, headline TEXT, company TEXT, location TEXT, linkedin_url TEXT, searched_at TIMESTAMPTZ DEFAULT NOW())")
+                # Save raw search results
                 for lead in leads:
-                    cur.execute(
-                        "INSERT INTO search_results (query, name, headline, company, location, linkedin_url) VALUES (%s,%s,%s,%s,%s,%s)",
-                        (job_title or "", lead.get("name",""), lead.get("headline",""), lead.get("company",""), lead.get("location",""), lead.get("linkedin_url",""))
-                    )
+                    try:
+                        cur.execute(
+                            "INSERT INTO search_results (query, name, headline, company, location, linkedin_url) VALUES (%s,%s,%s,%s,%s,%s)",
+                            (job_title or "", lead.get("name",""), lead.get("headline",""), lead.get("company",""), lead.get("location",""), lead.get("linkedin_url",""))
+                        )
+                    except Exception:
+                        conn.rollback()
 
                 # Mark completed
                 cur.execute("UPDATE bridge_search_requests SET status = 'completed', completed_at = NOW(), result_count = %s WHERE id = %s", (len(leads), req_id))
