@@ -127,8 +127,8 @@ def poll_bridge_search_requests():
         conn = psycopg2.connect(NEON_CONN)
         cur = conn.cursor()
 
-        # Get pending requests
-        cur.execute("SELECT id, job_title, companies, location, keywords, max_results FROM bridge_search_requests WHERE status = 'pending' ORDER BY requested_at LIMIT 5")
+        # Get pending requests (newest first — fresh queries matter most)
+        cur.execute("SELECT id, job_title, companies, location, keywords, max_results, role, company, job_id, pipeline_run_id FROM bridge_search_requests WHERE status = 'pending' ORDER BY requested_at DESC LIMIT 5")
         rows = cur.fetchall()
 
         if not rows:
@@ -139,7 +139,7 @@ def poll_bridge_search_requests():
         print(f"[*] {len(rows)} pending bridge search request(s)")
 
         for row in rows:
-            req_id, job_title, companies, location, keywords, max_results = row
+            req_id, job_title, companies, location, keywords, max_results, role, req_company, job_id, pipeline_run_id = row
             max_results = max_results or 10
 
             # Mark as processing
@@ -226,7 +226,22 @@ Look for search result cards/items on the page. Return up to {max_results} resul
                     url = lead.get("linkedin_url", "")
                     try:
                         profile = scrape_linkedin_profile(url)
+                        # Tag profile with the request it came from
+                        profile["sourced_from_request_id"] = req_id
+                        profile["sourced_role"] = role or job_title or ""
+                        profile["sourced_company"] = req_company or ""
+                        profile["sourced_pipeline_run_id"] = pipeline_run_id or ""
                         save_to_neon(profile)
+                        # Also update the profiles row with sourcing labels
+                        cur.execute("""
+                            UPDATE profiles SET
+                                sourced_from_request_id = %s,
+                                sourced_role = %s,
+                                sourced_company = %s,
+                                sourced_pipeline_run_id = %s
+                            WHERE url = %s
+                        """, (req_id, role or job_title, req_company, pipeline_run_id, url))
+                        conn.commit()
                         scraped += 1
                         time.sleep(random.uniform(5, 12))
                     except Exception as e:
