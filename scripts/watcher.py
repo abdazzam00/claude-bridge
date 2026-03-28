@@ -147,19 +147,24 @@ def poll_bridge_search_requests():
             conn.commit()
 
             try:
-                # Build search query for LinkedIn Sales Navigator
+                # Build search query — deduplicate job_title vs keywords
                 search_parts = []
                 if job_title:
                     search_parts.append(job_title)
-                if keywords:
+                if keywords and keywords != job_title:
                     search_parts.append(keywords)
                 if location:
                     search_parts.append(location)
 
+                # Add companies if provided
+                if companies:
+                    comp_list = companies if isinstance(companies, list) else []
+                    if comp_list:
+                        search_parts.append(" ".join(comp_list[:3]))
+
                 search_query = " ".join(search_parts)
                 print(f"[*] Bridge search #{req_id}: '{search_query}'")
 
-                # Use Hyperbrowser Extract to search LinkedIn
                 from hyperbrowser import Hyperbrowser
                 from hyperbrowser.models.extract import StartExtractJobParams
                 from hyperbrowser.models.session import CreateSessionParams, CreateSessionProfile
@@ -168,16 +173,15 @@ def poll_bridge_search_requests():
 
                 hb = Hyperbrowser(api_key=HB_API_KEY)
 
-                # Build Sales Nav search URL
-                sn_keywords = quote(search_query)
-                search_url = f"https://www.linkedin.com/sales/search/people?query=(keywords:{sn_keywords},spellCorrectionEnabled:true)"
+                # Use regular LinkedIn people search (more reliable than Sales Nav URL)
+                encoded_q = quote(search_query)
+                search_url = f"https://www.linkedin.com/search/results/people/?keywords={encoded_q}&origin=GLOBAL_SEARCH_HEADER"
 
-                # Extract search results
                 result = hb.extract.start_and_wait(StartExtractJobParams(
                     urls=[search_url],
-                    prompt=f"""Extract all people/lead results from this LinkedIn Sales Navigator search page.
-For each person found, extract: full name, headline/job title, current company, location, LinkedIn profile URL.
-Look for search result cards/items on the page. Return up to {max_results} results.""",
+                    prompt=f"""Extract all people search results from this LinkedIn search page.
+For each person found, extract: full name, headline/job title, current company, location, and their LinkedIn profile URL (format: https://www.linkedin.com/in/username).
+Return up to {max_results} results. Only include real people results, not ads or suggestions.""",
                     schema_={
                         "type": "object",
                         "properties": {
