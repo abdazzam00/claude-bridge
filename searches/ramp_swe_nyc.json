@@ -1,0 +1,13 @@
+{
+  "search_id": "ramp_swe_nyc_20260329",
+  "query": "software engineer",
+  "filters": {
+    "current_companies": ["Ramp"],
+    "geo": "New York City Metropolitan Area",
+    "seniority": ["Senior", "Manager"]
+  },
+  "max_results": 50,
+  "requested_at": "2026-03-29T15:30:00Z",
+  "status": "pending",
+  "notes": "Looking for Senior SWEs at Ramp in NYC, especially those with founder/startup backgrounds, AI/ML experience, or strong GitHub presence. For Crosby.ai Senior SWE role."
+}
