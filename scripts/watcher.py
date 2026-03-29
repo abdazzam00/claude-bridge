@@ -155,103 +155,81 @@ def poll_bridge_search_requests():
 
                 hb = Hyperbrowser(api_key=HB_API_KEY)
 
-                # Strategy: search per company using Browser-Use agent
+                # ONE search per request — combine companies into one Sales Nav query
                 comp_list = companies if isinstance(companies, list) else []
-                if not comp_list:
-                    comp_list = [""]
+                companies_str = ", ".join(comp_list[:5]) if comp_list else ""
 
-                all_leads = []
-                leads_per_company = max(3, max_results // max(len(comp_list), 1))
+                search_desc = f"{job_title or ''} at {companies_str}" if companies_str else (job_title or keywords or "")
+                print(f"[*] Sales Nav search #{req_id}: '{search_desc}' in {location}")
 
-                for comp in comp_list[:10]:
-                    q_parts = []
-                    if job_title:
-                        q_parts.append(job_title)
-                    if comp:
-                        q_parts.append(comp)
-                    if location:
-                        q_parts.append(location)
-                    search_query = " ".join(q_parts)
-                    print(f"[*] Search #{req_id}: '{search_query}'")
+                task_prompt = f'''Go to LinkedIn Sales Navigator lead search at https://www.linkedin.com/sales/search/people
+You are already logged in with Sales Navigator access. The li_at cookie is set.
 
-                    try:
-                        result = hb.agents.browser_use.start_and_wait(StartBrowserUseTaskParams(
-                            task=f'''Go to LinkedIn Sales Navigator at https://www.linkedin.com/sales/search/people
-You are already logged in with Sales Navigator access.
-Use the Sales Navigator lead search filters:
-- Enter "{job_title}" in the keywords or title filter
-- Set current company to "{comp}" if there is a company filter
-- Set geography/location to "{location}" if there is a geography filter
-- Click Search or apply the filters
-- Wait for results to load
-Extract the first {leads_per_company} lead results with:
-full name, headline/title, current company, location, and their LinkedIn profile URL (convert Sales Nav URLs to regular format: https://www.linkedin.com/in/username).
-Return ONLY a JSON array, no other text.''',
-                            llm='gemini-2.5-flash',
-                            max_steps=20,
-                            keep_browser_open=False,
-                            session_options=CreateSessionParams(
-                                use_stealth=True, solve_captchas=True, accept_cookies=True,
-                                profile=CreateSessionProfile(id=HB_PROFILE_ID),
-                            ),
-                        ))
+DO THIS STEP BY STEP:
+1. Wait for the Sales Navigator search page to fully load
+2. Use the filters on the left side:
+   - In the "Keywords" or search box, type: {job_title or keywords or "Software Engineer"}
+   - Click on "Current company" filter and add these companies one by one: {companies_str or "any top tech company"}
+   - Click on "Geography" filter and type: {location or "United States"}
+   - Apply all filters
+3. Wait for search results to load
+4. Scroll through the results
+5. For each person shown in the results, extract:
+   - Full name
+   - Headline/job title
+   - Current company
+   - Location
+   - LinkedIn profile URL (look for links containing /in/ or /sales/lead/ — convert /sales/lead/... URLs to https://www.linkedin.com/in/USERNAME format)
+6. Get up to {max_results} results
 
-                        if result.data and result.data.final_result:
-                            raw = result.data.final_result
-                            print(f"[DEBUG] Agent raw output for '{comp}': {raw[:500]}")
-                            # Try multiple JSON parsing strategies
-                            comp_leads = None
-                            # Strategy 1: find JSON array
-                            raw_clean = raw.replace('\n', ' ')
-                            start = raw_clean.find('[')
-                            end = raw_clean.rfind(']') + 1
-                            if start >= 0 and end > start:
-                                for attempt_str in [raw_clean[start:end], raw_clean[start:end].replace("'", '"')]:
-                                    try:
-                                        comp_leads = _json.loads(attempt_str)
-                                        break
-                                    except _json.JSONDecodeError:
-                                        pass
-                            # Strategy 2: find JSON object with results array
-                            if not comp_leads:
-                                obj_start = raw_clean.find('{')
-                                obj_end = raw_clean.rfind('}') + 1
-                                if obj_start >= 0 and obj_end > obj_start:
-                                    try:
-                                        obj = _json.loads(raw_clean[obj_start:obj_end])
-                                        comp_leads = obj.get('results', obj.get('leads', obj.get('people', [])))
-                                    except _json.JSONDecodeError:
-                                        pass
-                            # Strategy 3: parse text lines as leads
-                            if not comp_leads:
-                                comp_leads = []
-                                lines = raw.split('\n')
-                                for line in lines:
-                                    line = line.strip()
-                                    if 'linkedin.com/in/' in line:
-                                        import re as _re
-                                        url_match = _re.search(r'https?://(?:www\.)?linkedin\.com/in/[^\s\)\"]+', line)
-                                        if url_match:
-                                            comp_leads.append({'linkedin_url': url_match.group(), 'name': line[:50]})
-                            if comp_leads:
-                                # Normalize field names
-                                for lead in comp_leads:
-                                    if 'linkedin_profile_url' in lead and 'linkedin_url' not in lead:
-                                        lead['linkedin_url'] = lead['linkedin_profile_url']
-                                    if 'full_name' in lead and 'name' not in lead:
-                                        lead['name'] = lead['full_name']
-                                    if 'current_company' in lead and 'company' not in lead:
-                                        lead['company'] = lead['current_company']
-                                print(f"[+] {comp or 'general'}: {len(comp_leads)} leads")
-                                all_leads.extend(comp_leads)
-                            else:
-                                print(f"[!] No JSON in agent output for '{comp}'")
-                        else:
-                            print(f"[!] No result for '{comp}'")
-                    except Exception as e:
-                        print(f"[!] Search error for '{comp}': {e}")
+Return ONLY a valid JSON array like this, nothing else:
+[{{"name": "John Doe", "headline": "SWE at Google", "company": "Google", "location": "NYC", "linkedin_url": "https://www.linkedin.com/in/johndoe"}}]'''
 
-                    time.sleep(random.uniform(3, 6))
+                try:
+                    result = hb.agents.browser_use.start_and_wait(StartBrowserUseTaskParams(
+                        task=task_prompt,
+                        llm='gemini-2.5-flash',
+                        max_steps=30,
+                        keep_browser_open=False,
+                        session_options=CreateSessionParams(
+                            use_stealth=True, solve_captchas=True, accept_cookies=True,
+                            profile=CreateSessionProfile(id=HB_PROFILE_ID),
+                        ),
+                    ))
+
+                    all_leads = []
+                    if result.data and result.data.final_result:
+                        raw = result.data.final_result
+                        print(f"[*] Agent output: {raw[:300]}")
+
+                        # Parse JSON from agent output
+                        raw_clean = raw.replace('\n', ' ')
+                        for strategy in [
+                            lambda: _json.loads(raw_clean[raw_clean.find('['):raw_clean.rfind(']')+1]),
+                            lambda: _json.loads(raw_clean[raw_clean.find('['):raw_clean.rfind(']')+1].replace("'", '"')),
+                            lambda: _json.loads(raw_clean[raw_clean.find('{'):raw_clean.rfind('}')+1]).get('results', []),
+                        ]:
+                            try:
+                                parsed = strategy()
+                                if parsed and isinstance(parsed, list):
+                                    all_leads = parsed
+                                    break
+                            except Exception:
+                                pass
+
+                        # Normalize field names
+                        for lead in all_leads:
+                            for old, new in [('linkedin_profile_url', 'linkedin_url'), ('full_name', 'name'), ('current_company', 'company'), ('profile_url', 'linkedin_url')]:
+                                if old in lead and new not in lead:
+                                    lead[new] = lead[old]
+
+                        print(f"[+] Parsed {len(all_leads)} leads from Sales Nav")
+                    else:
+                        print(f"[!] Agent returned no result. Error: {result.error}")
+
+                except Exception as e:
+                    print(f"[!] Sales Nav agent error: {e}")
+                    all_leads = []
 
                 leads = all_leads
                 print(f"[+] Total leads for #{req_id}: {len(leads)}")
